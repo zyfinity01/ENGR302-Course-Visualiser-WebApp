@@ -1,0 +1,21 @@
+stages:
+  - lint
+
+variables:
+  NODE_IMAGE: 'node:latest'
+
+lint_backend:
+  stage: lint
+  image: $NODE_IMAGE
+  script:
+    - cd backend
+    - npm install
+    - npm run lint
+
+lint_frontend:
+  stage: lint
+  image: $NODE_IMAGE
+  script:
+    - cd frontend
+    - npm install
+    - npm run lint
