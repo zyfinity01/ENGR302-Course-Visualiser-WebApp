@@ -11,6 +11,7 @@ lint_backend:
     - cd backend
     - npm install
     - npm run lint
+    - npm test
 
 lint_frontend:
   stage: lint
