@@ -1,4 +1,3 @@
-import fetch from 'node-fetch'
 import { parse } from 'node-html-parser'
 import { Course } from '../models/course'
 
@@ -23,13 +22,13 @@ async function getCoursesForProgramme(programme: string): Promise<Course[]> {
   const subjectBodies = root.querySelectorAll('.subjectsbody')
   const coursePoints = root.querySelectorAll('.coursepoints')
 
-  var results: Course[] = []
-  for (var i = 0; i < courseIds.length; i++) {
-    var courseIdAndName = courseIds[i].textContent
-    var courseSplit = courseIdAndName.indexOf('–')
+  const results: Course[] = []
+  for (let i = 0; i < courseIds.length; i++) {
+    const courseIdAndName = courseIds[i].textContent
+    const courseSplit = courseIdAndName.indexOf('–')
 
-    var pointsAndRequirements = coursePoints[i].textContent
-    var pointSplit = pointsAndRequirements.indexOf('•')
+    const pointsAndRequirements = coursePoints[i].textContent
+    const pointSplit = pointsAndRequirements.indexOf('•')
 
     results.push({
       id: courseIdAndName.substring(0, courseSplit).trim(),
