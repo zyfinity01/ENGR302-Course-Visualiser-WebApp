@@ -3,11 +3,11 @@ import path from 'path'
 
 const storageService = {
   SAVE_PATH: './data/',
-  CSV_NAME: 'courses.csv',
-  saveCSV: (csv: string) => {
+  JSON_NAME: 'courses.json',
+  saveJSON: (json: string) => {
     const filePath = path.join(
       storageService.SAVE_PATH,
-      storageService.CSV_NAME
+      storageService.JSON_NAME
     )
 
     // Create the directory if it doesn't exist
@@ -15,13 +15,13 @@ const storageService = {
       fs.mkdirSync(storageService.SAVE_PATH, { recursive: true })
     }
 
-    // Write the CSV to the file, overwriting if it exists
-    fs.writeFileSync(filePath, csv)
+    // Write the JSON to the file, overwriting if it exists
+    fs.writeFileSync(filePath, json)
   },
-  getCSV: () => {
+  getJSON: () => {
     const filePath = path.join(
       storageService.SAVE_PATH,
-      storageService.CSV_NAME
+      storageService.JSON_NAME
     )
     return fs.readFileSync(filePath, 'utf-8')
   },
