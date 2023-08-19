@@ -3,11 +3,11 @@ import StorageService from '../services/storageService'
 
 const router = Router()
 
-router.get('/csv', (req, res) => {
-  const csv = StorageService.getCSV()
+router.get('/json', (req, res) => {
+  const json = StorageService.getJSON()
 
-  res.setHeader('Content-Type', 'text/csv')
-  res.status(200).send(csv)
+  res.setHeader('Content-Type', 'application/json')
+  res.status(200).send(json)
 })
 
 export default router
