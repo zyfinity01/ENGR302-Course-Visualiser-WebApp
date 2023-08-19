@@ -2,6 +2,8 @@ export type Course = {
   id: string
   name: string
   description: string
-  points: string
+  points: number
+  level: number
   requirements: string
+  prerequisites: string[]
 }
