@@ -2,24 +2,40 @@ import { Course } from '../models/course'
 
 export type ParsedCourse = {
   course: Course
-  prerequisites: string[]
-  corequisites: string[]
-  restrictions: string[]
+  prerequisites: Requirement[]
+  corequisites: Requirement[]
+  restrictions: Requirement[]
 }
 
-/*
-abstract class Requirement {
-  constructor(private condition: Condition) {}
+export abstract class Requirement { }
 
-  abstract isTrue(): boolean
+export class CourseAndRequirement implements Requirement {
+  constructor(private courses: Requirement[]) {
+
+  }
 }
 
-abstract class Condition {}
+export class CourseOrRequirement implements Requirement {
+  constructor(private courses: string[]) {
 
-class AndCondition {}
+  }
+}
 
-class PermissionCondition {}
-*/
+export class LevelCourseRequirement implements Requirement {
+  constructor(private level: number, private points: number, private courses: string[]) {
+
+  }
+}
+
+export class NoneRequirement implements Requirement {
+
+}
+
+export class BadParse implements Requirement {
+  constructor(value: string) {
+    console.log('Failed to parse:\n\t' + value)
+  }
+}
 
 export function parseCourse(course: Course): ParsedCourse {
   return {
@@ -30,28 +46,24 @@ export function parseCourse(course: Course): ParsedCourse {
   }
 }
 
-function parseRequirements(course: Course, section: string): string[] {
+function parseRequirements(course: Course, section: string): Requirement[] {
   const requirementSection = parseRequirementSubstring(course, section)
   if (!requirementSection || !requirementSection.trim()) {
     return []
   }
 
-  // enrolment in BE(Hons)
-  // COMP 102 or 112, ENGR 101
-  // 16 Achievement Standard credits NCEA Level 3 in Mathematics) or (12 Achievement Standard credits NCEA Level 3 Mathematics excluding the statistics standards 91580, 91581, 91582, 91583, 91584) or MATH 132
-  // (ENGR 142 or PHYS 142 or 115)
-  // ENGR 101, 110 and 45 further points from Part 1 of the BE(Hons) schedule
-  // (ENGR 121, 122) or (MATH 142, 151)
-  // Permission of Head of School
-  // COMP 103.
-  // ENGR 121 (or MATH 141 and 151)
-  // ENGR 141 (or (PHYS 114 or 101) and (CHEM 114 or 122))
-  // EEEN 202 (or ECEN 202), NWEN 241
-  // 45 points from AIML 425-440
-  // as for ENGR 401
-  // 60 300-level points from CGRA, COMP, CYBR, ECEN, EEEN, NWEN, RESE, SWEN
+  const requirements: Requirement[] = []
+  const tokens = requirementSection.split(';')
+  for (const token of tokens) {
+    if (!token) {
+      continue
+    }
 
-  return requirementSection.split(';').map((x) => x.trim())
+    const requirement = parseRequirement(token.trim())
+    requirements.push(requirement)
+  }
+
+  return requirements
 }
 
 function parseRequirementSubstring(
@@ -71,4 +83,98 @@ function parseRequirementSubstring(
   }
 
   return after.substring(0, ending).trim()
+}
+
+function parseRequirement(r: string): Requirement {
+  return parseAndCourses(r) ||
+    parseOrCourses(r) ||
+    parsePairCourses(r) ||
+    parseLevel(r) ||
+    parseNoneRequirement(r) ||
+    new BadParse(r)
+}
+
+function parseAndCourses(r: string): Requirement | null {
+  // COMP 102 or 112, ENGR 101
+  if (r.includes(', ')) {
+    const courses = r.split(', ').map(r => parseOrCourses(r))
+    if (courses != null && courses.length > 0 && courses.every(r => r != null)) {
+      return new CourseAndRequirement(courses as Requirement[])
+    }
+  }
+
+  return null
+}
+
+function parseOrCourses(r: string): Requirement | null {
+  const courseRegex = /^[A-Z]{4} \d{3}$/
+  const numberRegex = /^\d{3}/
+  
+  const values = r.split(' or ')
+
+  // ENGR 123 or 456 -> ENGR 123 or ENGR 456
+  if (courseRegex.test(values[0])) {
+    for (let i = 1; i < values.length; i++) {
+      if (numberRegex.test(values[i])) {
+        values[i] = values[i-1].split(' ')[0] + ' ' + values[i]
+      }
+    }
+  }
+
+  // ENGR 123 or MATH 161
+  if (values.every(r => courseRegex.test(r))) {
+    return new CourseOrRequirement(values)
+  }
+
+  return null
+}
+
+function parsePairCourses(r: string): Requirement | null {
+  // Any pair (MATH 141/QUAN 111, MATH 151/161/177)
+
+  if (!r.includes('Any pair')) {
+    return null
+  }
+
+  const test = r.replace('Any pair (', '')
+    .replace(')', '')
+    .split(', ')
+    .map(x => x.split('/').join(', '))
+
+  const values = r.replace('Any pair (', '')
+    .replace(')', '')
+    .split(', ')
+    .map(x => x.split('/').join(', '))
+    .map(x => parseAndCourses(x))
+  
+  console.log(test)
+  console.log(JSON.stringify(values, null, 4))
+
+  if (values && values.length > 0 && values.every(x => x != null)) {
+    return values
+  }
+
+  return null
+}
+
+function parseLevel(r: string): Requirement | null {
+  // 30 200-level COMP/NWEN/SWEN points
+  if (/^\d{2} \d{3}-level (.)* points/.test(r)) {
+    const tokens = r.split(' ')
+    const points = parseInt(tokens[0])
+    const level = parseInt(tokens[1].split('-')[0])
+    const courses = tokens[2].split('/')
+    return new LevelCourseRequirement(level, points, courses)
+  }
+
+  return null
+}
+
+function parseNoneRequirement(r: string): Requirement | null {
+  // enrolment in BE(Hons)
+  if (r == 'enrolment in BE(Hons)') {
+    return new NoneRequirement()
+  }
+
+  return null
 }
