@@ -7,7 +7,7 @@ const router = Router()
 const upload = multer({ storage: multer.memoryStorage() })
 
 router.post(
-  '/csv',
+  '/json',
   AuthService.AUTH_MIDDLEWARE,
   /*AuthService.WRITE_COURSE_SCOPE */ upload.single('file'),
   (req, res) => {
@@ -16,14 +16,14 @@ router.post(
       return res.status(400).send('No file uploaded.')
     }
 
-    // Get CSV from uploaded file
-    const csv = req.file.buffer.toString('utf-8')
+    // Get JSON from uploaded file
+    const json = req.file.buffer.toString('utf-8')
 
-    // Save to disk using the static path ./data/courses.csv
-    StorageService.saveCSV(csv)
+    // Save to disk using the static path ./data/courses.json
+    StorageService.saveJSON(json)
 
     // Send success response
-    res.status(200).send('CSV uploaded and saved.')
+    res.status(200).send('JSON uploaded and saved.')
   }
 )
 
