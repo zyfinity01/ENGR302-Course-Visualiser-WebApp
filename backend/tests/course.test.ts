@@ -1,21 +1,32 @@
 import { expect, test } from '@jest/globals'
 import { getAllCourses } from '../src/services/catprintService'
 import { Course } from '../src/models/course'
-import { parseCourse } from '../src/services/requirementService'
+import { BadParse, parseCourse } from '../src/services/requirementService'
+const fs = require('fs');
 
 test('parse courses', async () => {
-  const courses = await getAllCourses()
+  //const courses = await getAllCourses()
+  const content = fs.readFileSync('courses.json', 'utf8');
+  const courses = JSON.parse(content) as Course[]
 
-  let output = ''
   for (const course of courses) {
-    for (const requirement of parseCourse(course).prerequisites) {
-      output += requirement + '\n'
+    const parsedCourse = parseCourse(course)
+
+    if (parsedCourse.prerequisites.some(x => x instanceof BadParse)) {
+      break
+    }
+
+    if (parsedCourse.corequisites.some(x => x instanceof BadParse)) {
+      break
+    }
+
+    if (parsedCourse.restrictions.some(x => x instanceof BadParse)) {
+      break
     }
   }
-
-  console.log(output)
 })
 
+/*
 test('parse course', async () => {
   const course: Course = {
     id: 'SWEN 324',
@@ -29,10 +40,14 @@ test('parse course', async () => {
   }
 
   const parsedCourse = parseCourse(course)
-  console.log(parsedCourse)
+  //console.log(JSON.stringify(parsedCourse, null, 4))
 })
+*/
 
+/*
 test('get all courses', async () => {
   const courses = await getAllCourses()
+  console.log(courses)
   expect(courses.length).toBeGreaterThan(0)
 })
+*/

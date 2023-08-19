@@ -1,0 +1,1058 @@
+[
+    {
+        "id": "ENGR 101",
+        "name": "Engineering Technology",
+        "description": "This course provides a general introduction to the fundamental technical concepts needed to understand the design and engineering of electronic, mechatronic, networked and software systems. Experience is gained in basic engineering practice, with assembly and testing of basic hardware, software and networked systems, and construction of a personal computer.",
+        "requirements": "(P) enrolment in BE(Hons)",
+        "points": 15,
+        "level": 100
+    },
+    {
+        "id": "ENGR 110",
+        "name": "Engineering Design",
+        "description": "This course addresses the engineering design process through a collection of engineering projects that requre a range of technologies and design techniques. Sustainability will be an important component of the course, with some of the projects addressing technology and design for sustainable engineering.",
+        "requirements": "(P) COMP 102 or 112, ENGR 101 (X) ENGR 111",
+        "points": 15,
+        "level": 100
+    },
+    {
+        "id": "ENGR 121",
+        "name": "Engineering Mathematics Foundations",
+        "description": "An introduction to the range of mathematical techniques employed by engineers, including functions, calculus, linear algebra, vector geometry, set theory, logic and probability. There is an emphasis on applications and modelling.",
+        "requirements": "(P) 16 Achievement Standard credits NCEA Level 3 in Mathematics) or (12 Achievement Standard credits NCEA Level 3 Mathematics excluding the statistics standards 91580, 91581, 91582, 91583, 91584) or MATH 132 (X) Any pair (MATH 141/QUAN 111, MATH 151/161/177)",
+        "points": 15,
+        "level": 100
+    },
+    {
+        "id": "ENGR 122",
+        "name": "Engineering Mathematics with Calculus",
+        "description": "Further mathematical techniques employed by electrical and electronic engineers, with a focus on methods of calculus, differential equations, and linear algebra. There is an emphasis on engineering applications and use of software.",
+        "requirements": "(P) ENGR 121 or MATH 141; (X) the pair (MATH 142, 151)",
+        "points": 15,
+        "level": 100
+    },
+    {
+        "id": "ENGR 123",
+        "name": "Engineering Mathematics with Logic and Statistics",
+        "description": "Mathematical techniques employed by cybersecurity and software engineers, including methods of combinatorics, logic, probability, and decision theory. The course emphasises engineering applications.",
+        "requirements": "(P) ENGR 121; (X) the pair MATH 161, (MATH 177, QUAN 102 or STAT 193)",
+        "points": 15,
+        "level": 100
+    },
+    {
+        "id": "ENGR 141",
+        "name": "Engineering Science",
+        "description": "ENGR 141 deals with scientific topics relevant to Engineering. Topics will include forms and use of energy, Newton’s laws of motion, gravity, waves, thermodynamics and required math concepts (limits, derivatives, functions). Students will obtain an appreciation for quantitative scientific reasoning and the role of fundamental physical laws in governing human energy use.",
+        "requirements": "(P) 16 Achievement Standard credits NCEA Level 3 in Mathematics) or (12 Achievement Standard credits NCEA Level 3 Mathematics excluding the statistics standards 91580, 91581, 91582, 91583, 91584) or MATH 132 (X) PHYS 101, PHYS 114, PHYS 115",
+        "points": 15,
+        "level": 100
+    },
+    {
+        "id": "ENGR 142",
+        "name": "Engineering Physics for Electronics and Computer Systems",
+        "description": "Physics theory and practice relevant to electronics and computer systems engineering. Topics covered will include electrostatics (charge, force, field, potential), magnetic field and force, DC and AC circuits, electromagnetic induction and other selected topics. Lectures, assignments and laboratory work will all focus on the application of physics to engineering situations.",
+        "requirements": "(P) either ENGR 141 and (ENGR 121 or MATH 141) or approved levels of achievement in NCEA Level 3 Physics and Calculus or equivalent (X) PHYS 115, 142",
+        "points": 15,
+        "level": 100
+    },
+    {
+        "id": "RESE 111",
+        "name": "Introduction to Renewable Energy Systems",
+        "description": "This course provides an overview of the role of energy systems in sustainability, and the development trends, past and future, of different technologies. The ways in which the technologies influence industry, government, and society are examined from a range of different perspectives. Students will gain practical skills in energy generation and utilisation through a range of experiments, as well as skills in modelling renewable energy systems for different contexts. Mathematics and physics at NCEA level 3 are recommended, but not essential to take this course.",
+        "requirements": "(X) ENGR 111, ENGR 110 in 2019-2020",
+        "points": 15,
+        "level": 100
+    },
+    {
+        "id": "EEEN 201",
+        "name": "Mechatronic Design and Prototyping",
+        "description": "This course will equip students with a basic understanding of mechanical theory and the skills of electronic and mechanical design and construction so that they can successfully design and complete a moderately complex project. A presentation of this project work forms an integral part of the course.",
+        "requirements": "(P) COMP 102 or 112; ENGR 101, 110; ENGR 121 or MATH 141 or equivalent; (X) ECEN 201",
+        "points": 15,
+        "level": 200
+    },
+    {
+        "id": "EEEN 202",
+        "name": "Digital Electronics and Microprocessors",
+        "description": "An introduction to the design and construction of digital electronic instruments. Following a review of binary arithmetic and Boolean algebra, the course will focus on the design of digital circuits using both combinatorial and sequential logic. Further work will study microprocessor architectures, programming and interfacing and the conversions of digital and analogue signals.",
+        "requirements": "(P) one of (COMP 102, 112, ENGR 101, 121, MATH 161) (X) ECEN 202",
+        "points": 15,
+        "level": 200
+    },
+    {
+        "id": "EEEN 203",
+        "name": "Circuit Analysis",
+        "description": "This course covers the analysis of analogue electrical and electronic circuits. Topics covered include basic circuit theorems, operational amplifier circuits, the use of phasors for AC circuit analysis and the Laplace transform for switched systems. The use of computational and measurement tools for circuit characterisation is also covered.",
+        "requirements": "(P) (ENGR 122 or MATH 142); (ENGR 142 or PHYS 142 or 115); (X) ECEN 203",
+        "points": 15,
+        "level": 200
+    },
+    {
+        "id": "EEEN 204",
+        "name": "Electronic Devices",
+        "description": "This course introduces fundamental electronic devices and their circuit applications. Topics include semiconductor fundamentals, diodes, transistors and operational amplifiers and the operation and application of special function diodes such as light emitting diodes and solar cells. Prototyping and testing of practical circuits using these electronic devices will be addressed in the laboratory sessions.",
+        "requirements": "(P) (ENGR 122 or MATH 142); (ENGR 142 or PHYS 142 or 115); (X) ECEN 204",
+        "points": 15,
+        "level": 200
+    },
+    {
+        "id": "EEEN 220",
+        "name": "Signals, Systems and Statistics 1",
+        "description": "The course introduces analysis techniques for signals and linear time-invariant systems as well as fundamentals of engineering statistics. The first part of the course focuses on continuous time signals and systems and Fourier transform techniques, with applications to circuit analysis and communication systems. The second part of the course introduces probability mass and density functions, random variables and functions of random variables.",
+        "requirements": "(P) (ENGR 121,122) or (MATH 142, 151); (X) ECEN 220",
+        "points": 15,
+        "level": 200
+    },
+    {
+        "id": "ENGR 201",
+        "name": "Engineering in Context",
+        "description": "This course addresses the research, analysis, critical and creative thinking skills embodied in written and oral communication which professional engineers are expected to display in the workplace. While addressing these aspects, the course at the same time develops the personal and interpersonal skills required to work effectively as part of a team in an engineering context.",
+        "requirements": "(P) ENGR 101, 110 and 45 further points from Part 1 of the BE(Hons) schedule",
+        "points": 15,
+        "level": 200
+    },
+    {
+        "id": "ENGR 222",
+        "name": "Computational Algebra and Calculus",
+        "description": "This course will cover fundamental concepts in linear algebra and multivariable calculus and their applications to physical and engineering problems. Mathematical software will be used extensively. Topics covered will include dimensionality, linear transformations, matrix decomposition, Taylor series, calculus of vector-valued functions and calculus of two-variable functions.",
+        "requirements": "(P) (ENGR 121, 122) or (MATH 142, 151)",
+        "points": 15,
+        "level": 200
+    },
+    {
+        "id": "ENGR 240",
+        "name": "Directed Individual Study",
+        "description": "",
+        "requirements": "(P) Permission of Head of School",
+        "points": 15,
+        "level": 200
+    },
+    {
+        "id": "ENGR 241",
+        "name": "Directed Individual Study",
+        "description": "",
+        "requirements": "(P) Permission of Head of School",
+        "points": 30,
+        "level": 200
+    },
+    {
+        "id": "NWEN 241",
+        "name": "Systems Programming",
+        "description": "This course considers the issues raised when programming at a low-level, for example in embedded systems, OS system level, or network protocol stacks. It includes an introduction to C language programming and motivating examples related to a wide variety of applications of system programming.",
+        "requirements": "(P) COMP 103",
+        "points": 15,
+        "level": 200
+    },
+    {
+        "id": "NWEN 243",
+        "name": "Clouds and Networking",
+        "description": "The course provides a broad introduction to computer networks and a basic understanding of network application programming, with an emphasis on the working principles and application of computer networks. It covers a range of introductory topics including the essentials of data communication, computer network concepts, protocols, network applications and cloud computing. The course features an interactive laboratory component with projects starting from basic networking technologies leading into cloud application development.",
+        "requirements": "(P) COMP 103.",
+        "points": 15,
+        "level": 200
+    },
+    {
+        "id": "RESE 211",
+        "name": "Renewable Energy Generation Systems",
+        "description": "This course will expose the students to the different energy generation systems, and especially those that utilise renewable resources: wind energy (pumping and power), geothermal, hydro (different scales), solar photovoltaic, solar thermal, and bioenergy. For each system, the theoretical underpinning will be examined; for example, optical physics to harness solar radiation in a concentrating solar technology. The life cycle (sustainability) implications of the different systems will also be explored, including manufacturing.",
+        "requirements": "(P) ENGR 110 or RESE 111; ENGR 121 (or MATH 141 and 151); ENGR 141 (or (PHYS 114 or 101) and (CHEM 114 or 122))",
+        "points": 15,
+        "level": 200
+    },
+    {
+        "id": "RESE 212",
+        "name": "Renewable Energy Conversion and Storage",
+        "description": "This course will provide the students with insight into technologies to convert generated energy into useful fuels or power in the economy and society. It will specifically focus on bioenergy conversion processes, such as gasification, pyrolysis and torrefaction; chemical storage (solid-state and liquid batteries); and pumped and mechanical storage. For each technology platform the underlying physics and chemistry will be examined, with related practical experiments in the laboratory. The life cycle (sustainability) implications of the different,= technologies will also be explored, including manufacturing.",
+        "requirements": "(P) ENGR 110 or RESE 111; ENGR 121 (or MATH 141 and 151); ENGR 141 (or (PHYS 114 or 101) and (CHEM 114 or 122))",
+        "points": 15,
+        "level": 200
+    },
+    {
+        "id": "SWEN 221",
+        "name": "Software Development",
+        "description": "This course develops a deeper understanding of object- oriented programming and associated practices. The focus is on programming techniques at the micro scale. Topics include: inheritance, polymorphism, genericity, error handling, testing and debugging. A sequence of short assignments will develop the key ideas and practices; rigour in testing will be developed through (automated) assessment of programme correctness.",
+        "requirements": "(P) COMP 103",
+        "points": 15,
+        "level": 200
+    },
+    {
+        "id": "SWEN 225",
+        "name": "Software Design",
+        "description": "This course develops a strong understanding of object-oriented design. Students will study modelling and programming techniques that support the analysis, design and development of large and maintainable programs. Students will work together in groups on an engineering problem and use a variety of best practices (e.g. Design Patterns) and notations (e.g. UML). Students will use specialized tools to apply these techniques in practical work.",
+        "requirements": "(P) SWEN 221; (X) SWEN 222",
+        "points": 15,
+        "level": 200
+    },
+    {
+        "id": "EEEN 301",
+        "name": "Computer Architecture and Embedded Systems",
+        "description": "The course develops an understanding of the structure of computers, how they execute programs and how they interface to the real world. The course first covers ARM assembly language programming, data representation, computer arithmetic, microprocessor architecture at the hardware level and a comparison with GPU, DSP and FPGA architectures. The course then explores the design flow and application of embedded computers in real-world engineering problems. Practical experience is gained using microprocessors, techniques to interface them with the physical world, development tool chains, debugging and embedded Linux operating systems.",
+        "requirements": "(P) EEEN 202 (or ECEN 202), NWEN 241 (X) ECEN 301, NWEN 342",
+        "points": 15,
+        "level": 300
+    },
+    {
+        "id": "EEEN 310",
+        "name": "Communication Engineering",
+        "description": "The course provides students with an introduction to the physical layer of communication systems. It begins with basics of analog communications (AM, FM). Digital communications topics include intersymbol interference and Nyquist pulse shaping for bandlimited channels, matched filter receivers for additive noise channels and their error rate performance. Also covered are fundamentals of wireless fading channels and diversity receivers, followed by a brief overview of equalisation and OFDM.",
+        "requirements": "(P) EEEN 220 (or ECEN 220); (X) ECEN 310",
+        "points": 15,
+        "level": 300
+    },
+    {
+        "id": "EEEN 313",
+        "name": "Power Electronics and Electrical Machines",
+        "description": "This course covers the theory, design and application of electrical machines, power electronic circuits, electric drives, and the transformation and control of electrical energy. The course introduces the fundamentals of electromagnetics and electrical machines, as well as power electronics and discusses the design issues related to electrical drives and small-scale power generation. Practical work will involve the design, development, and implementation of solutions to drive motors, convert renewable power, and switch mode power amplifiers.",
+        "requirements": "(P) EEEN 203 (or ECEN 203), EEEN 204 (or ECEN 204)",
+        "points": 15,
+        "level": 300
+    },
+    {
+        "id": "EEEN 315",
+        "name": "Control and Instrumentation",
+        "description": "The course shows how models can be used to analyse, describe and predict the behaviour of mechanical and electrical systems. The use of feedback to alter the properties of these systems to meet desired specifications is presented. A variety of methods are developed for designing control systems, including the use of a PID controller.",
+        "requirements": "(P) EEEN 203 (or ECEN 203) (X) ECEN 315",
+        "points": 15,
+        "level": 300
+    },
+    {
+        "id": "EEEN 320",
+        "name": "Signals, Systems and Statistics 2",
+        "description": "The course introduces analysis techniques for discrete-time signals and linear time-invariant systems as well as topics in engineering statistics. The first part of the course focuses on discrete-time signals and systems and discrete Fourier transform techniques, with applications to circuit analysis and communication systems. The second part of the course covers topics in engineering statistics, including confidence intervals, statistical tests, and regression, as applied to engineering problems.",
+        "requirements": "(P) EEEN 220 (or ECEN 220) (X) ECEN 321",
+        "points": 15,
+        "level": 300
+    },
+    {
+        "id": "EEEN 325",
+        "name": "Robotic Engineering",
+        "description": "This course presents the principles of robotic and mechatronic design, construction and control. It covers both the theoretical and practical aspects of integrating mechanical, electronic and software components.",
+        "requirements": "(P) EEEN 201 (X) ECEN 301",
+        "points": 15,
+        "level": 300
+    },
+    {
+        "id": "ENGR 301",
+        "name": "Engineering Project Management 1",
+        "description": "The course takes a practice-based approach to teaching engineering project management, including aspects of project life cycle, requirements analysis, principles of design, project tasks and deliverables, contracts, cost estimation, project scheduling, risk management, quality assurance, managing project resources, testing and delivery, interpersonal communication, teamwork and project leadership. Students will work on a technical group project which will provide opportunities to practice the project management techniques learned in class.",
+        "requirements": "(P) Satisfactory completion of Part 1 of the BE(Hons), ENGR 201 and 60 200-level pts from (CYBR, COMP, ECEN, EEEN, NWEN, RESE, SWEN)",
+        "points": 15,
+        "level": 300
+    },
+    {
+        "id": "ENGR 302",
+        "name": "Engineering Project Management 2",
+        "description": "The course takes a practice-based approach to teaching engineering project management, emphasising execution, monitoring, control communication, project closing, and delivery. Students will continue their work on a technical group project providing opportunities to practice the project management techniques learned in class.",
+        "requirements": "(P) ENGR 301",
+        "points": 15,
+        "level": 300
+    },
+    {
+        "id": "ENGR 340",
+        "name": "Directed Individual Study",
+        "description": "",
+        "requirements": "(P) Permission of Head of School",
+        "points": 15,
+        "level": 300
+    },
+    {
+        "id": "ENGR 341",
+        "name": "Directed Individual Study",
+        "description": "",
+        "requirements": "(P) Permission of Head of School",
+        "points": 30,
+        "level": 300
+    },
+    {
+        "id": "NWEN 301",
+        "name": "Operating Systems Design",
+        "description": "This course addresses the design and implementation of operating sytems and examines fundamental concepts such as resource management, concurrency, protection and security. Examples drawn from a range of modern operating systems illustrate these concepts and project work provides practical experience in the design and implementation of operating systems.",
+        "requirements": "(P) NWEN 241",
+        "points": 15,
+        "level": 300
+    },
+    {
+        "id": "NWEN 302",
+        "name": "Computer Network Design",
+        "description": "This course addresses the principles, architectures and protocols that have shaped the development of the Internet and modern networked applications. It examines network design principles, underlying protocols, technologies and architectures of the TCP/IP protocol stack. Topics include the design of transport protocols, routing protocols, logical link control, medium access control and physical media.",
+        "requirements": "(P) NWEN 241, 243; ENGR 123 or (MATH 161, one of MATH 177, QUAN 102 or STAT 193)",
+        "points": 15,
+        "level": 300
+    },
+    {
+        "id": "NWEN 303",
+        "name": "Concurrent Programming",
+        "description": "This course examines a range of techniques for programming multi-threaded and distributed applications. Topics include synchronisation mechanisms used for programs that communicate via shared memory and message passing techniques for programs that communicate across a network. Practical work involves implementing programs using these techniques in a modern concurrent language, such as Java.",
+        "requirements": "(P) ENGR 123 or MATH 161; SWEN 221; 15 points from (COMP 261, CYBR 271, NWEN 241, 243)",
+        "points": 15,
+        "level": 300
+    },
+    {
+        "id": "NWEN 304",
+        "name": "Advanced Network Applications",
+        "description": "This course introduces technologies, algorithms and systems for developing secure, scalable and reliable web server applications. Specific emphasis will be placed on application development middleware, computer security, network protocols and distributed systems. Particularly a variety of topics ranging from fundamental to advanced technologies for developing RESTful web applications, including MVC, distributed authentication and authorization, secure data communication, web caching and content replication, will be covered in lectures.",
+        "requirements": "(P) ENGR 123 or MATH 161, NWEN 243; COMP 261 or NWEN 241 or SWEN 221",
+        "points": 15,
+        "level": 300
+    },
+    {
+        "id": "RESE 311",
+        "name": "Energy Economic Analyses",
+        "description": "This course introduces principles of economics, and how they relate to energy systems, specifically reflecting on the energy-economic nexus. It explores practical techniques to analyse the micro- and macro-economic implications of transitions in the energy system along with relevant business and financial analysis techniques. It presents an overview of the Resource Management Act and related aspects for engineering projects, such as Environmental Impact Assessments.",
+        "requirements": "(P) RESE 211, 212; one of (STAT 193, QUAN 102, ECEN 321)",
+        "points": 15,
+        "level": 300
+    },
+    {
+        "id": "RESE 312",
+        "name": "Sustainability Modelling Techniques",
+        "description": "This course introduces various approaches to analyse the sustainability of systems, such as cost-benefit analysis, life cycle analysis, and simulation modelling techniques, with a focus on system dynamics modelling. Practical work explores simulation using an industry- standard software package and a project to model and investigate the sustainability implications of an implemented renewable energy technology in a specific context; for example, a bioenergy system in an island community.",
+        "requirements": "(P) RESE 211, 212",
+        "points": 15,
+        "level": 300
+    },
+    {
+        "id": "RESE 313",
+        "name": "Power Electronics and Electrical Machines",
+        "description": "This course covers the theory, design and application of electrical machines, power electronic circuits, electric drives, and the transformation and control of electrical energy. The course introduces the fundamentals of power electronics and electrical machines, and discusses the design issues related to electrical drives and small-scale power generation. Practical work will involve the design, development, and implementation of solutions to drive motors, convert renewable power, and switch mode power amplifiers.",
+        "requirements": "(P) RESE 211, 212; ECEN 202, 203",
+        "points": 15,
+        "level": 300
+    },
+    {
+        "id": "RESE 321",
+        "name": "Renewable Energy Generation Engineering",
+        "description": "This course introduces a range of different energy generation systems, and especially those that utilise renewable resources: wind energy (pumping and power), geothermal, hydro (at different scales), solar photovoltaic, solar thermal, and bioenergy. For each technology, the theoretical underpinning is examined – for example, optical physics to harness solar radiation in concentrating solar systems – and the engineering approaches to identify and design efficiency improvements for such systems are established.",
+        "requirements": "(P) EEEN 203, 204 (X) RESE 211",
+        "points": 15,
+        "level": 300
+    },
+    {
+        "id": "RESE 322",
+        "name": "Renewable Energy Storage Engineering",
+        "description": "This course provides insights into technologies that convert renewable energy generation into useful fuels or power in the economy and society. It will include bioenergy conversion processes, such as gasification, pyrolysis and torrefaction; chemical storage (solid-state and liquid batteries); thermal storage; and pumped and mechanical storage. It examines the underlying physics and chemistry for each technology platform, with related practical experiments in the laboratory. The engineering approaches to identify and design efficiency improvements for such systems are established.",
+        "requirements": "(P) EEEN 203, 204",
+        "points": 15,
+        "level": 300
+    },
+    {
+        "id": "RESE 323",
+        "name": "Renewable Energy Policy",
+        "description": "This course provides an overview of the policy context of renewable energy, consisting of the regulatory, institutional, and market setting for renewable energy technologies. It explores the sustainability of the technologies from the perspectives of policy-makers and other stakeholders. The course equips students with the means to assess, identify, and prioritise renewable energy technologies from the perspectives of various stakeholders, as well as decision-making tools to promote appropriate and sustainable renewable energy technologies from a policy perspective.",
+        "requirements": "(P) RESE 211, 212",
+        "points": 15,
+        "level": 300
+    },
+    {
+        "id": "SWEN 301",
+        "name": "Scalable Software Development",
+        "description": "This course introduces the processes, practices, and tools required to engineer medium to large software systems, and to address challenges arising from the emerging complexity of such systems. Topics include software craft, architecture, design, implementation, testing, maintenance, quality assurance, configuration management, build automation and principled use of components and libraries, and open-source development. Practical work will use integrated development environments, automation, and domain specific languages.",
+        "requirements": "(P) SWEN 225",
+        "points": 15,
+        "level": 300
+    },
+    {
+        "id": "SWEN 303",
+        "name": "User Experience Engineering",
+        "description": "This course addresses the engineering of user experiences (UX). It presents principles and guidelines for design and covers a range of design and engineering processes. It presents techniques for user testing of applications, digital systems, and physical devices.",
+        "requirements": "(P) COMP 261 or SWEN 221 (X) INFO 307",
+        "points": 15,
+        "level": 300
+    },
+    {
+        "id": "SWEN 304",
+        "name": "Database System Engineering",
+        "description": "The course addresses fundamental principles underlying databases and database management systems. It covers the structure and principles of the relational data model, including SQL, and the principled design of the relational database schema. It also addresses issues in database transaction procession, concurrency control, recovery, and the complexity of query processing.",
+        "requirements": "(P) COMP 261 or SWEN 221; ENGR 123 or MATH 161 (X) COMP 302, INFO 310",
+        "points": 15,
+        "level": 300
+    },
+    {
+        "id": "SWEN 324",
+        "name": "Software Correctness",
+        "description": "This course is concerned with the development of correct software, especially the use of formal requirements and specifications to develop high-integrity software. This has applications in several areas, such as safety-critical systems (e.g. commercial airliners, space systems, etc.) and high-performance concurrent systems. The course will examine a range of principles and techniques which underpin a rigorous approach to the specification and implementation of software. A sequence of assignments and labs will see a range of tools being used to specify small software systems, and to check that they meet their requirements.",
+        "requirements": "(P) COMP 103; ENGR 123 or MATH 161; 30 200-level COMP/NWEN/SWEN points; (X) SWEN 224",
+        "points": 15,
+        "level": 300
+    },
+    {
+        "id": "SWEN 325",
+        "name": "Software Development for Mobile Platforms",
+        "description": "This course addresses the concepts, techniques, and tools required for developing applications within software frameworks for mobile platforms. Topics include the concepts and principles underlying software frameworks, the design and implementation of client-server applications, principles of user experience design for frameworks, the design and implementation of client-server applications, principles of user experience design for mobile applications, and key concepts in reliability, privacy, security and safety critical systems. Practical work will involve the design, implementation and testing of a range of mobile applications.",
+        "requirements": "(P) NWEN 243, SWEN 225 (or 222)",
+        "points": 15,
+        "level": 300
+    },
+    {
+        "id": "SWEN 326",
+        "name": "Safety-Critical Systems",
+        "description": "This course addresses the concepts, techniques and tools required for developing computer systems that are applicable where safety and reliability is paramount. Topics include: the concepts and principles underlying safety-critical systems & standards (e.g. DO178C and IEC61508); techniques for design validation (e.g. model checking); and implementation techniques for ensuring software correctness (e.g. coding guidelines, testing, static analysis, etc). Practical work will involve the design, implementation, and analysis of simple safety critical applications (e.g. for industrial, embedded and healthcare systems).",
+        "requirements": "(P) NWEN 241, SWEN 225 (or 222)",
+        "points": 15,
+        "level": 300
+    },
+    {
+        "id": "EEEN 401",
+        "name": "Applied Electromagnetics and Compliance",
+        "description": "This course will address the engineering applications of electromagnetism, including propagation of signals, low EM emissions circuit board design, radio waves and antennas, grounding, high voltage insulators, and electrical safety design and testing. An important focus of the course is to become familiar with the international framework of product compliance and sustainability.",
+        "requirements": "(P) EEEN 313, one of (ENGR 222, MATH 244)",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "EEEN 402",
+        "name": "Programmable Digital Logic",
+        "description": "The course develops an understanding of the structure of Field Programmable Gate Arrays, how to program them and how to interface them to the real world. The topics covered are VHDL programming, logic design, state machine design, I/O, design tools, simulation, timing analysis, debugging, IP block design methodology, softcore microprocessors and system on a chip implementation. Practical experience is gained through the use of professional design tools and hardware to interface FPGAs with the physical world.",
+        "requirements": "(P) EEEN 301 (or ECEN 301) (X) ECEN 302",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "EEEN 403",
+        "name": "Advanced Electronic Instrumentation",
+        "description": "This course develops a deeper understanding of electronic instrumentation and the underlying models and methodologies used in electronic design. Topics covered are: derivation of discrete device models (including noise behaviour) for simulation, radio frequency design and simulation, two port networks, power transfer and impedance matching, transmission lines, high speed PCB design, noise, discrete device and Op Amp low noise amplifier design and Phase Locked Loop modelling and implementation. Practical skills are developed through laboratory simulation and design exercises.",
+        "requirements": "(P) EEEN 315 (or ECEN 303) (X) ECEN 403",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "EEEN 410",
+        "name": "Advanced Communications Engineering",
+        "description": "The course covers advanced topics in physical layer wireless communications. It begins with a brief introduction to Information Theory, leading to the concept of channel capacity. Multiple antenna techniques for both single and multiple user communications are discussed, including diversity, space time coding and digital beamforming. Large scale systems and advanced channel models are discussed. Matlab system simulations are used throughout the course for evaluating the communication system performance.",
+        "requirements": "(P) EEEN 310 (or ECEN 310) (X) ECEN 410",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "EEEN 411",
+        "name": "Coding and Cryptography for Communications",
+        "description": "The course covers key topics in modern coding theory (finite vector spaces, linear codes, coding bounds, perfect codes, cyclic codes) as applied to wireless communication systems. Further topics include cryptography (classical ciphers, the one-time pad, Shannon's Theorem, linear shift registers, public key cryptography, one-way functions, the RSA cryptosystem, key distribution and digital signatures).",
+        "requirements": "(P) EEEN 310 (or ECEN 310) (X) MATH 324",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "EEEN 415",
+        "name": "Advanced Control Systems Engineering",
+        "description": "This course extends previous control studies to cover the use of modern control techniques in shaping the behaviour of complex systems having multiple inputs and outputs, in both discrete and continuous time. Optimal control (LQR) and estimation (the Kalman filter) are introduced. The course concentrates on linear and linearised systems, but some introductory nonlinear material is presented, including applications to robot control.",
+        "requirements": "(P) EEEN 315 (or ECEN 315) (X) ECEN 415",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "EEEN 421",
+        "name": "Advanced Signal Processing",
+        "description": "This course provides a geometric intuition to signal processing. This geometric point of view is a powerful tool for the understanding of signal processing techniques including transforms, sampling, time-frequency analysis and wavelets. The course provides the mathematical depth and rigor that is necessary for the study of more advanced topics in signal processing, including stochastic processes and estimation.",
+        "requirements": "(P) one of (ECEN 321, EEEN 320, MATH 318, MATH 377, STAT 332) (X) ECEN 421",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "EEEN 422",
+        "name": "Convex Optimisation",
+        "description": "Convex optimisation problems are common in science, engineering and economics. The course teaches identifying and solving convex optimisation problems. It discusses convex sets and functions, linear and quadratic programs, semi-definite programming, and duality theory. It uses these concepts to solve practical optimisation problems .",
+        "requirements": "(P) EEEN 320 (or ECEN 320 or 321) (X) ECEN 422, ECEN 426 in 2014–2016",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "EEEN 425",
+        "name": "Advanced Robotic Engineering",
+        "description": "This course presents advanced principles of robotic and mechatronic design, prototyping, construction and control. It covers both the theoretical and practical aspects of integrating the mechanical, electronic and software components and applies relevant machine learning concepts.",
+        "requirements": "(P) EEEN 325 (or ECEN 301) (X) ECEN 425",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "EEEN 427",
+        "name": "Special Topic: Advanced Mechatronic Design",
+        "description": "The course will cover a number of topics in design, simulation, construction and testing of advanced mechatronic systems, addressing both theoretical and practical design aspects.",
+        "requirements": "(P) EEEN 325 or EEEN 301",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "EEEN 430",
+        "name": "Robotic Intelligence and Design",
+        "description": "The course addresses the applications of artificially intelligent systems in embodied scenarios. It will teach the skills to assess tasks, evaluate appropriate techniques, and will provide experience in designing and implementing solutions and communicating the benefits of AI in physically based tasks.",
+        "requirements": "(P) one of (COMP 309, EEEN 325 (or ECEN 301) (X) ECEN 430",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "EEEN 431",
+        "name": "Musical Robotics",
+        "description": "This project-based course incorporates a music theme in the design and construction of a novel mechatronic instrument. The necessary fundamentals of the appropriate music theory are introduced, and then students are guided in a project-based learning style to develop an actuator and sensor rich robotic device that can play a suitable music score. Students are evaluated on their design, construction and testing of this robotic device.",
+        "requirements": "(P) ECEN 325 or equivalent (X) ECEN 427 in 2017-2018",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "ENGR 401",
+        "name": "Professional Practice",
+        "description": "This course will prepare student's expectations for many of the events and situations they are likely to meet in the professional working world. This includes: codes of conduct, as determined by professional bodies and company practices; ethical behaviour, as found in the workplace and dictated by company practices; critical thinking and people issues, as relevant in the workplace and in company practice.",
+        "requirements": "(P) ENGR 201, 301, 302; 45 further 300-level pts from the BE(Hons) Schedule",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "ENGR 440",
+        "name": "Directed Individual Study",
+        "description": "A supervised programme of study approved by the Head of School.",
+        "requirements": "(P) 60 300-level points from CGRA, COMP, CYBR, ECEN, EEEN, NWEN, RESE, SWEN; Permission of Head of School",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "ENGR 441",
+        "name": "Directed Individual Study",
+        "description": "A supervised programme of study approved by the Head of School.",
+        "requirements": "(P) 60 300-level points from CGRA, COMP, CYBR, ECEN, EEEN, NWEN, RESE, SWEN; Permission of Head of School",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "ENGR 489",
+        "name": "Engineering Project",
+        "description": "Students will work on an individual project of a complex nature in order to develop a solution to an engineering problem. In addition to the technical engineering development work, the project may require consideration of issues such as customer specifications, cost analysis, IP and product testing and delivery. Students will be required to give an oral and a poster presentation as well as a final report on their project.",
+        "requirements": "(P) as for ENGR 401",
+        "points": 30,
+        "level": 400
+    },
+    {
+        "id": "ENGR 491",
+        "name": "Professional Work Experience",
+        "description": "Completion of the work experience requirement for the BE.",
+        "requirements": "(P) ENGR 391, 401",
+        "points": 0,
+        "level": 400
+    },
+    {
+        "id": "NWEN 401",
+        "name": "Distributed Systems Design",
+        "description": "Distributed system concepts and techniques underlie much of modern computer technology; client-server systems based on high-bandwidth networks support applications ranging from business data processing to multimedia information systems. This course teaches the concepts and principles employed in the design and implementation of distributed systems, with practical examples, providing a suitable knowledge base for those aiming for careers in advanced system and application development, or in research.",
+        "requirements": "(P) two courses from (NWEN 301, 302, 303)",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "NWEN 402",
+        "name": "Internet Engineering",
+        "description": "This course addresses the use of important technologies in the design and engineering of modern high performance Internet applications and infrastructure. Course coverage includes views on the impact of economic, political and technical issues on internet engineering which are explored through case studies and recent professional and research literature. These aspects are explored through practical group work in distributed systems/Internet technology plus lectures and seminars.",
+        "requirements": "(P) NWEN 302, 304; 15 further 300-level COMP, ECEN, NWEN or SWEN pts",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "NWEN 403",
+        "name": "Advanced Network Engineering",
+        "description": "This course extends the data communications and telecommunication taught in Computer Network Design, concentrating on new developments and network case studies. The course is designed for those aiming for careers that involve networking or network research and enhances the understanding of distributed systems through the applications of distributed systems in network management and Internet infrastructure.",
+        "requirements": "(P) NWEN 302, 30 further 300-level pts from (COMP, ECEN, NWEN, SWEN)",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "NWEN 404",
+        "name": "Mobile Computing",
+        "description": "The course introduces the fundamental topics of Mobile Computing. In particular, the course will emphasise the network and transport layers of wireless communication protocols and network infrastructure suitable for mobile personal systems (e.g. GSM, 3G, Mobile IP, etc). Key issues of mobility and disconnected operation with respect to mobile computing systems and quality of service issues in mobile personal systems will be covered and how applications handle node mobility and wireless communications will be explored.",
+        "requirements": "(P) NWEN 302 and 30 further 300-level pts from (COMP, ECEN, NWEN, SWEN)",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "NWEN 405",
+        "name": "Security Engineering",
+        "description": "The Internet's role as a large, public, distributed system has raised security to an issue of critical importance. This course examines security mechanisms, security policies, security evaluation and risk management, security issues in networks and operating systems, and case studies that show how these security techniques can be used to solve real- world problems such as conducting trustworthy auctions and secret ballots.",
+        "requirements": "(P) NWEN 304, 30 further 300-level pts from (COMP, ECEN, NWEN, SWEN)",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "NWEN 406",
+        "name": "Distributed Computing in Grids and Clouds",
+        "description": "The course focuses on the design and use of distributed systems for high end computing. In particular we look at the aggregation of geographically distributed computing resources to form massive distributed computing platforms. These platforms can then be applied to solve large problems in science and industry - protein docking, seismology medicine, astronomy, particle physics, climate prediction etc. Topics in this course typically include: e-Science, clusters, grids and clouds, service oriented architectures, workflow management, utility computing and grid economies.",
+        "requirements": "(P) NWEN 301; NWEN 302 or 303",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "RESE 411",
+        "name": "Power Systems Analysis",
+        "description": "This course introduces the electricity industry and its components along with techniques for modern electric power system modelling and analysis. Topics include transmission line models, transformers and per unit systems, generator models, network matrices, power flow analysis and computation, real and reactive power control, voltage control, and protection. The course incorporates lab and simulation based exercises, an industrial tour, and an industrial project.",
+        "requirements": "(P) RESE 313; ECEN 202, 203",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "RESE 412",
+        "name": "Advanced Development of RE Systems",
+        "description": "This course presents techniques used to design advanced, integrated renewable energy solutions for given situations. The hardware and control enabling renewable energy systems to interact with a wider grid are presented along with topologies such as nano- and micro-grids. To supplement the technical content, this course presents the concepts of systems engineering, which introduces systems thinking principles.",
+        "requirements": "(P) EEEN 315 (or ECEN 315);",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "RESE 413",
+        "name": "Power Electronics and Electrical Machines",
+        "description": "This course covers the theory, design and and application of electrical machines, power electronic circuits, electric drives, and the transformation and control of electrical energy. The course introduces the fundamentals of power electronics and electrical machines, and discusses the design issues related to electrical drives and small-scale power generation. Practical work will involve the design, development, and implementation of solutions to drive motors, convert renewable power, and switch mode power amplifiers.",
+        "requirements": "(P) EEEN 203, EEEN 204 (X) EEEN 313, EEEN 405, ECEN 405",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "RESE 421",
+        "name": "Energy Economic Analyses",
+        "description": "This course introduces principles of economics, and how they relate to energy systems, specifically reflecting on the energy-economic nexus. It explores practical techniques to analyse the micro- and macro-economic implications of transitions in the energy system, along with relevant business and financial analysis techniques. It applies the principles and techniques to analyse a real-world topic to inform decision- or policy-making with appropriate conclusions and recommendations.",
+        "requirements": "(C) (one of RESE 423, 431, 412) (X) RESE 311",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "RESE 422",
+        "name": "Sustainability Modelling Techniques",
+        "description": "This course introduces various approaches to analyse the sustainability of systems, such as cost-benefit analysis, and simulation modelling techniques. It then focuses more deeply on system dynamics modelling and life cycle analysis. Practical work explores simulations using industry-standard software packages and a project to model and investigate the sustainability implications of a renewable energy intervention in the economy – to develop a policy brief.",
+        "requirements": "(P) One of (RESE 423, 431, 412) (X) RESE 312",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "RESE 423",
+        "name": "Case studies of RE Systems",
+        "description": "This course provides an overview of the role of energy systems in sustainability, and the development trends, past and future, of different technologies. The ways in which the technologies influence industry, government, and society are examined from a range of different perspectives, by focussing on specific, real-world case studies. Students will also gain practical skills in modelling renewable energy systems for different contexts, by utilising standard industry software packages.",
+        "requirements": "(C) One of (RESE 431, RESE 421)",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "RESE 431",
+        "name": "RE Systems Generation",
+        "description": "This course introduces a range of different energy generation systems, and especially those that utilise renewable resources: wind energy (pumping and power), geothermal, hydro (different scales), solar photovoltaic, solar thermal, and bioenergy. For each technology, the theoretical underpinning is examined with related practical experiments in the laboratory. Approaches to identify and conceptualise efficiency improvements for such systems are established. A practical project is undertaken to conceptualise and demonstrate an improved energy generation system for a real-world context.",
+        "requirements": "(X) RESE 321",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "RESE 432",
+        "name": "RE Storage and Conversion",
+        "description": "This course provides insights into technologies that convert renewable energy generation into useful fuels or power in the economy and society. It will include bioenergy conversion processes, chemical storage (solid-state and liquid batteries), thermal storage, and pumped and mechanical storage. It examines the underlying physics and chemistry for each technology platform with related practical experiments in the laboratory. Approaches to identify and conceptualise efficiency improvements for such systems are established. A practical project is undertaken to conceptualise and demonstrate an improved energy storage system for a real-world context.",
+        "requirements": "(X) RESE 322",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "RESE 451",
+        "name": "Research methods for RE systems (theory)",
+        "description": "This course covers the theory and practice of undertaking research. The nature and process of quantitative and qualitative research approaches are explored to enable students to formulate and conduct a research effort to find answers to specific problems related to renewable energy. Topics that will be covered include: the aims of research; the research topic, project title, and research problem; literature review types; population and sampling types; types of quantitative and qualitative research designs; data-collecting methods and measuring instruments in quantitative and qualitative research; data analysis and interpretation of results; and validity of conclusions.",
+        "requirements": "(C) one of (RESE 421, 431, 412)",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "RESE 452",
+        "name": "Research methods for RE systems (project)",
+        "description": "This course applies the research theory – from RESE 451 – to a specific renewable energy related, real-world problem that is identified. It explores and applies practical methods to undertake in-depth, critical analyses of the literature to derive the research rationale, objectives/questions, and strategy, as well as grounding the theory and engineering or analytical methods, and the related gaps in knowledge, that are applicable to the identified research problem. Practical workshops are undertaken to instil academic writing techniques that are applied to writing a research proposal and a supporting research article.",
+        "requirements": "(P) RESE 451",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "RESE 487",
+        "name": "Research Project",
+        "description": "This course gives students the opportunity to pursue an individual research project relating to an aspect of renewable energy – for the Bachelor of Science with Honours in Renewable Energy. Students will be given guidance and support from a supervisor.",
+        "requirements": "(C) RESE 452",
+        "points": 30,
+        "level": 400
+    },
+    {
+        "id": "SWEN 421",
+        "name": "Formal Software Engineering",
+        "description": "This course addresses the use of mathematical logic in the specification and construction for software systems. It presents an introduction to the area of formal methods; the formal specification of software systems; the refinement of specifications to code; and their semantic foundations.",
+        "requirements": "(P) SWEN 324 (or 224); 30 300-level pts from (COMP, SWEN)",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "SWEN 422",
+        "name": "Human Computer Interaction",
+        "description": "This course covers principles of human-computer interaction that underlie good design of software user interfaces. Advanced topics are introduced with a focus on current research areas.",
+        "requirements": "(P) one of (COMP 313, SWEN 303, 325).",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "SWEN 423",
+        "name": "Design: Patterns, Frameworks and Languages",
+        "description": "Object-orientation is the basis for many different programming languages, frameworks and programming patterns. This course explores advanced topics in formal design techniques for OO Languages, OO Frameworks and OO Programming Patterns, and connects those formal designs with practical programming examples.",
+        "requirements": "(P) SWEN 225; 30 300-level COMP, NWEN or SWEN pts.",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "SWEN 424",
+        "name": "Model-Driven Development",
+        "description": "An introduction to model-driven development - the modern approach to large scale software system development along with an introduction to the core concepts of model-driven development, the course will address the foundations and principles for supporting infrastructures. This includes an in-depth discussion of 'metamodelling' and a critique of existing modelling techniques. Students will get hands-on experience with using a meta-case tool.",
+        "requirements": "(P) 30 300-level pts from (COMP, NWEN, SWEN)",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "SWEN 425",
+        "name": "Design Patterns",
+        "description": "The course addresses a variety of advanced issues in Software Engineering, including the use for Software Patterns for software design.",
+        "requirements": "(P) SWEN 301, 15 further 300-level COMP, NWEN or SWEN pts",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "SWEN 426",
+        "name": "Advanced Software Implementation and Development",
+        "description": "This course begins by covering issues relating to the successful implementation of a software design, including processes, metrics, the choice of programming language, the choice of implementation tools, coding styles, code reviews, and testing. The course also looks closely at the maintenance stage of softward development, and the issue of quality throughout the entire development process. Issues such as software quality assurance, configuration management and software process improvement are raised.",
+        "requirements": "(P) SWEN 301, 15 further 300-level COMP, NWEN or SWEN pts",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "SWEN 427",
+        "name": "Advanced Software Engineering: Requirements and Design",
+        "description": "This course covers basic concepts and principles of software requirements engineering, its tools and techniques, including a survey of methods for modelling software requirements. The course also covers methods and techniques used in the design of software systems, including both architectural and detailed design. In the requirements and design areas issues such as documentation, reviews and inspections are covered.",
+        "requirements": "(P) SWEN 301, 15 further 300-level SWEN pts",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "SWEN 428",
+        "name": "Protocols and Architecture for the Internet of Things",
+        "description": "This course introduces the fundamental networking protocols and architectures used in the Internet of Things (IoT). In particular, the course will examine the latest protocols and protocol stacks for low power wireless networking in both short-range and long-range settings. It will include in-depth discussion of protocols and algorithms at various layers of the network stack including medium access control, network, application, as well as security aspects unique to IoT.",
+        "requirements": "(P) NWEN 241, 243; 60 300-level pts from (COMP, ECEN, NWEN, SWEN) (X) NWEN 439 in 2020-2021",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "SWEN 430",
+        "name": "Compiler Engineering",
+        "description": "The course looks at a range of issues relating to the design and implementation of modern compilers. In particular, the course will focus on techniques and algorithms for code generation, code optimisation and type checking. During the course projects, students will be working on a fully-fledged compiler for a small imperative language.  Students should expect to learn a great deal about how compilers work and, in particular, about the Java Bytecode and x86 instruction sets.",
+        "requirements": "(P) COMP 261 or SWEN 324 (or 224); 30 further 300-level points from (COMP, NWEN 303, SWEN)",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "SWEN 431",
+        "name": "Advanced Programming Languages",
+        "description": "This course applies a range of advanced contemporary programming languages in current use, covering practical programming skills in the languages as well as their niches and design paradigms. The course will cover languages of present industrial interest, along with design trends of future languages.",
+        "requirements": "(P) 30 300-level COMP or SWEN points (X) COMP 432",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "SWEN 432",
+        "name": "Advanced Database Design and Implementation",
+        "description": "This course explores a selection of the following topics: XML Databases, Cloud Databases, Data Warehouse and Object-Relational Databases. It examines features of these advanced database systems and analyses the new applications they facilitate.",
+        "requirements": "(P) SWEN 304, 15 further 300-level COMP, NWEN or SWEN pts; (X) COMP 442, INFO 311",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "SWEN 433",
+        "name": "Web Information Systems Engineering",
+        "description": "This course gives a technology-centered introduction to web information systems and services. On successful completion of the course students are able to explain basic concepts used in building and managing web information systems. They know central technological standards underlying web information systems and web services, understand architectural principles, and are able to evaluate and critically discuss such systems.",
+        "requirements": "(P) SWEN 304, 15 further 300-level COMP, NWEN or SWEN pts; (X) COMP 443",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "SWEN 434",
+        "name": "Data Warehousing",
+        "description": "This course considers theory, design and implementation of Data Warehouses.",
+        "requirements": "(P) SWEN 304, 15 further 300-level COMP, NWEN or SWEN pts; (X) COMP 444",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "SWEN 435",
+        "name": "Database System Engineering",
+        "description": "The course addresses fundamental principles underlying databases and database management systems. It covers the structure and principles of the relational data model, including SQL, and the principled design of the relational database schema. It also addresses issues in database transaction procession, concurrency control, recovery, and the complexity of query processing.",
+        "requirements": "(P) 60 300-level pts of COMP, NWEN, SWEN (X) SWEN 304, SWEN 439 in 2021-2022",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "SWEN 438",
+        "name": "Special Topic: DevOps",
+        "description": "The course explores the principles of the DevOps transformation currently taking place in software engineering and information technology industries. The theory and practice of DevOps is examined alongside the modern software engineering tools and technologies which are used to create and maintain observable, scalable and reliable information technology infrastructures.",
+        "requirements": "(P) ENGR 302",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "AIML 420",
+        "name": "Artificial Intelligence",
+        "description": "This course addresses concepts and techniques of artificial intelligence (AI). It provides a brief overview of AI history and search techniques, as well as covering important machine learning topics and algorithms with their applications, including neural networks and evolutionary algorithms. Other topics include probability and Bayesian networks, planning and scheduling. The course will also give a brief overview of a selection of other current topics in AI.",
+        "requirements": "(P) 60 300-level CGRA, COMP, CYBR, DATA, SWEN or NWEN pts (X) COMP 307, COMP 420",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "AIML 421",
+        "name": "Machine Learning Tools and Techniques",
+        "description": "This course addresses the use of machine learning tools and techniques for analysing data and automatically generating applications. The course will explore a range of tools and techniques for classification, regression, image analysis, clustering, text mining, and preprocessing data. It examines the applicability and limitations of the techniques and methods for analysing and evaluating the outcome of using machine learning tools. Students will gain practical experience in applying a range of tools to a range of different problems from different domains.",
+        "requirements": "(P) 60 300-level CGRA, COMP, CYBR, DATA, NWEN, or SWEN pts (X) COMP 309",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "AIML 425",
+        "name": "Neural Networks and Deep Learning",
+        "description": "This course addresses the fundamentals of neural network based deep learning. It covers the commonly used deep learning architectures such as fully connected networks, resnets, variational autoencoders, and generative adversarial networks. It discusses functional blocks such as convolutional nets, recurrent neural nets such as LSTMs, and the common objective functions and regularization procedures. Examples will discuss applications such as object classification, classification of sequential text, and the generation of realistic human faces.",
+        "requirements": "(P) AIML 420 or COMP 307 (X) the pair (COMP 421, 422);",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "AIML 426",
+        "name": "Evolutionary Computation and Learning",
+        "description": "This course addresses evolutionary approaches in machine learning and optimisation. The course will cover both evolutionary algorithms and swarm intelligence as well as some other population-based techniques for problem solving. It will include a range of real-world application domains such as classification, regression, clustering and optimisation.",
+        "requirements": "(P) AIML 420 or COMP 307",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "AIML 427",
+        "name": "Big Data",
+        "description": "Big Data refers to the large and often complex datasets generated in the modern world: data sources such as commercial customer records, internet transactions, environmental monitoring. This course provides an introduction to the theory and practice of working with Big Data. Students enrolling in this course should be familiar with the basics of machine learning, data mining, statistical modelling and with programming.",
+        "requirements": "(P) one of (AIML 420, 421, COMP 307, 309, STAT 393, 394); one of (ENGR 123, STAT 193, MATH 177, QUAN 102) or comparable background in Statistics; (X) COMP 424, COMP 473 (2016-2018)",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "AIML 428",
+        "name": "Text Mining and Natural Language Processing",
+        "description": "This course focuses on text mining and natural language processing. It covers a variety of topics including text representation, document classification and clustering, opinion mining, information retrieval, recommender systems, query expansion, and information extraction.",
+        "requirements": "(P) 60 300-level pts; (C) AIML 420 or COMP 307; (X) COMP 423",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "AIML 429",
+        "name": "Probabilistic Machine Learning",
+        "description": "This course teaches the ideas, algorithms and techniques of probabilistic machine learning. Topics include Bayesian inference, discriminative and generative classifiers, the EM algorithm, Gaussian processes, Markov Chain Monte Carlo, hidden Markov models, belief nets and other graphical models, and causal modelling.",
+        "requirements": "(P) AIML 420 or COMP 307; one of (MATH 177, STAT 292, 293) or approved background in Maths or Statistics; (X) COMP 421",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "AIML 430",
+        "name": "Applications and Implications of Artificial Intelligence",
+        "description": "This course looks at the range of applications of artificial intelligence in the world of today and the future. It surveys the kinds of problem that can be solved with AI technology and techniques and considers the implications and consequences of using AI technology in these applications. It will discuss the positive and negative outcomes and the ethical issues and principles that need to be considered when creating technological solutions using AI.",
+        "requirements": "(P) 60 300-level pts",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "AIML 431",
+        "name": "Current Topics in Artificial Intelligence",
+        "description": "This course addresses several current topics in artificial intelligence.  Possible topics include Reinforcement Learning, AI for robotics, AI in games, Intelligent image analysis, AI and optimisation, AI Planning.",
+        "requirements": "(P) AIML 420 or COMP 307",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "AIML 440",
+        "name": "Directed Individual Study",
+        "description": "Content depends on the individual student.",
+        "requirements": "(P) Permission of Head of School",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "AIML 441",
+        "name": "Directed Individual Study",
+        "description": "Content depends on the individual student.",
+        "requirements": "(P) Permission of Head of School",
+        "points": 30,
+        "level": 400
+    },
+    {
+        "id": "AIML 487",
+        "name": "Research Project",
+        "description": "A supervised research project in an area of Artificial Intelligence.",
+        "requirements": "",
+        "points": 45,
+        "level": 400
+    },
+    {
+        "id": "ENGR 401",
+        "name": "Professional Practice",
+        "description": "This course will prepare student's expectations for many of the events and situations they are likely to meet in the professional working world. This includes: codes of conduct, as determined by professional bodies and company practices; ethical behaviour, as found in the workplace and dictated by company practices; critical thinking and people issues, as relevant in the workplace and in company practice.",
+        "requirements": "(P) ENGR 201, 301, 302; 45 further 300-level pts from the BE(Hons) Schedule",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "ENGR 439",
+        "name": "Special Topic: Mechatronic Design",
+        "description": "This course presents the fundamentals of sensor and actuator technologies as well as rapid prototyping techniques in the development of mechatronics projects. A number of different sensors and actuators are presented, and the use of microcontroller programming in sensor data measurement, analysis, and actuator control are examined. Basics of PCB design and structural design (using CAD and CAM techniques) and their utilisation in projects involving sensor and actuator technologies are also covered.",
+        "requirements": "(P) Permission of Head of School",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "ENGR 440",
+        "name": "Directed Individual Study",
+        "description": "A supervised programme of study approved by the Head of School.",
+        "requirements": "(P) 60 300-level points from CGRA, COMP, CYBR, ECEN, EEEN, NWEN, RESE, SWEN; Permission of Head of School",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "ENGR 441",
+        "name": "Directed Individual Study",
+        "description": "A supervised programme of study approved by the Head of School.",
+        "requirements": "(P) 60 300-level points from CGRA, COMP, CYBR, ECEN, EEEN, NWEN, RESE, SWEN; Permission of Head of School",
+        "points": 15,
+        "level": 400
+    },
+    {
+        "id": "ENGR 489",
+        "name": "Engineering Project",
+        "description": "Students will work on an individual project of a complex nature in order to develop a solution to an engineering problem. In addition to the technical engineering development work, the project may require consideration of issues such as customer specifications, cost analysis, IP and product testing and delivery. Students will be required to give an oral and a poster presentation as well as a final report on their project.",
+        "requirements": "(P) as for ENGR 401",
+        "points": 30,
+        "level": 400
+    },
+    {
+        "id": "ENGR 491",
+        "name": "Professional Work Experience",
+        "description": "Completion of the work experience requirement for the BE.",
+        "requirements": "(P) ENGR 391, 401",
+        "points": 0,
+        "level": 400
+    },
+    {
+        "id": "AIML 501",
+        "name": "Research Essay in Artificial Intelligence",
+        "description": "An investigation and literature review of an advanced topic in an area of artificial intelligence, reported in a project description and a literature review essay.",
+        "requirements": "(P) 45 points from AIML 425-440",
+        "points": 15,
+        "level": 500
+    },
+    {
+        "id": "AIML 589",
+        "name": "Research Project",
+        "description": "A supervised research project in an area of Artificial Intelligence.",
+        "requirements": "(P) 45 points from AIML 425-440 (C) AIML 501",
+        "points": 45,
+        "level": 500
+    },
+    {
+        "id": "AIML 591",
+        "name": "Thesis in Artificial Intelligence",
+        "description": "MSc thesis in Artificial Intelligence.",
+        "requirements": "",
+        "points": 120,
+        "level": 500
+    },
+    {
+        "id": "ENGR 501",
+        "name": "Engineering Research and Communication",
+        "description": "The course addresses research and communication skills for engineering practice. It will include finding, understanding and summarising research papers and engineering resources, writing engineering proposals and reports, and oral communication skills.",
+        "requirements": "(P) Admission to the MEP",
+        "points": 15,
+        "level": 500
+    },
+    {
+        "id": "ENGR 502",
+        "name": "Engineering Professional Practice",
+        "description": "The course addresses a range of issues in the professional practice of engineering, including critical thinking and problem solving, working in teams, innovation and entrepreneurship, social, cultural, legal, health & safety, environmental, and sustainability impact of engineering problems and solutions, and professional ethics and codes of conduct. Students will gain skills required to work as a professional engineer in the New Zealand engineering industry.",
+        "requirements": "(P) Admission to the MEP; (X) ENGR 401",
+        "points": 15,
+        "level": 500
+    },
+    {
+        "id": "ENGR 510",
+        "name": "Engineering Project 1",
+        "description": "Project management including aspects of life cycle, requirements analysis, principles of design, project tasks and deliverables, contracts, feasibility analysis, cost estimation and cost/benefit analysis, project scheduling, critical path analysis, risk management, quality assurance, managing project resources, testing and delivery, maintenance, interpersonal communication, teamwork and project leadership.",
+        "requirements": "(P) Admission to the MEP",
+        "points": 15,
+        "level": 500
+    },
+    {
+        "id": "ENGR 511",
+        "name": "Engineering Project 2",
+        "description": "The course develops more advanced skills in executing and managing engineering projects. Students will work in teams on a project of appropriate complexity, practising teamwork and project execution, monitoring and closing. The course concludes with the delivery of a successful project outcome to a client.",
+        "requirements": "(P) ENGR 502, 510 (C) ENGR 501;",
+        "points": 15,
+        "level": 500
+    },
+    {
+        "id": "ENGR 581",
+        "name": "Directed Individual Study",
+        "description": "Directed individual study in a topic in Engineering.",
+        "requirements": "(P) Permission of Head of School",
+        "points": 15,
+        "level": 500
+    },
+    {
+        "id": "ENGR 582",
+        "name": "Directed Individual Study",
+        "description": "Directed individual study in a topic in Engineering.",
+        "requirements": "(P) Permission of Head of School",
+        "points": 30,
+        "level": 500
+    },
+    {
+        "id": "ENGR 588",
+        "name": "Engineering Research and Development Project",
+        "description": "Supervised project, working on an engineering research and development problem.",
+        "requirements": "(P) Part 1 of the MEP",
+        "points": 60,
+        "level": 500
+    },
+    {
+        "id": "ENGR 589",
+        "name": "Industry Project",
+        "description": "Supervised project, working on an industrial software research and development task, generally as a placement in industry.",
+        "requirements": "(P) Part 1 of the MEP",
+        "points": 60,
+        "level": 500
+    },
+    {
+        "id": "ENGR 591",
+        "name": "Thesis",
+        "description": "ME thesis in Engineering.",
+        "requirements": "",
+        "points": 120,
+        "level": 500
+    },
+    {
+        "id": "ENGR 592",
+        "name": "Thesis",
+        "description": "ME thesis in Engineering.",
+        "requirements": "",
+        "points": 90,
+        "level": 500
+    },
+    {
+        "id": "AIML 690",
+        "name": "Artificial Intelligence for PhD",
+        "description": "",
+        "requirements": "",
+        "points": 120,
+        "level": 600
+    },
+    {
+        "id": "ENGR 690",
+        "name": "Engineering for PhD",
+        "description": "PhD Thesis.",
+        "requirements": "",
+        "points": 120,
+        "level": 600
+    },
+    {
+        "id": "ENGR 695",
+        "name": "Engineering for PhD (Robinson)",
+        "description": "",
+        "requirements": "",
+        "points": 120,
+        "level": 600
+    }
+]
