@@ -34,9 +34,17 @@ const NavBar = () => {
 
   return (
     <div className="nav-container mb-4">
-      <Navbar color="light" light expand="md" container={false}>
+      <Navbar style={{ backgroundColor: '#115737' }} light expand="md" container={false}>
+        
         <Container>
-          <NavbarBrand href="/">Course Visualiser</NavbarBrand>
+        
+          <img src="test" alt="" width="50" height="50" style={{ padding: '5px' }} />
+
+
+          <div style={{ textAlign: "center", backgroundColor: '#115737', color: 'white', padding: '10px' }}>
+            Course Visualiser
+          </div>
+
           <NavbarToggler onClick={toggle} />
 
           <Collapse isOpen={isOpen} navbar>
@@ -45,6 +53,7 @@ const NavBar = () => {
             </Nav>
 
             <Nav navbar>
+              
               {isAuthenticated && (
                 <NavItem>
                   <NavLink tag={Link} to="admin">
@@ -81,6 +90,7 @@ const NavBar = () => {
           </Collapse>
         </Container>
       </Navbar>
+      
     </div>
   )
 }
