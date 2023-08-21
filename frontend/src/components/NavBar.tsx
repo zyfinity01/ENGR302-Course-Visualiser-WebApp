@@ -20,6 +20,8 @@ import {
 
 import { useAuth0 } from '@auth0/auth0-react'
 
+import vuwImg from 'file:C:/ENGR302/course-visualiser/frontend/public/viclogo.png'
+
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0()
@@ -38,7 +40,7 @@ const NavBar = () => {
         
         <Container>
         
-          <img src="test" alt="" width="50" height="50" style={{ padding: '5px' }} />
+          <img src={vuwImg} alt="test.png" width="50" height="50" style={{ padding: '5px' }} />
 
 
           <div style={{ textAlign: "center", backgroundColor: '#115737', color: 'white', padding: '10px' }}>
