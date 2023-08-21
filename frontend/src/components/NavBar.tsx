@@ -20,8 +20,6 @@ import {
 
 import { useAuth0 } from '@auth0/auth0-react'
 
-import vuwImg from 'file:C:/ENGR302/course-visualiser/frontend/public/viclogo.png'
-
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0()
@@ -36,15 +34,19 @@ const NavBar = () => {
 
   return (
     <div className="nav-container mb-4">
-      <Navbar style={{ backgroundColor: '#115737' }} light expand="md" container={false}>
+      <Navbar style={{ backgroundColor: '#004b34' }} light expand="md" container={false}>
         
         <Container>
-        
-          <img src={vuwImg} alt="test.png" width="50" height="50" style={{ padding: '5px' }} />
-
-
-          <div style={{ textAlign: "center", backgroundColor: '#115737', color: 'white', padding: '10px' }}>
-            Course Visualiser
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <img 
+              src="/viclogo.png" 
+              alt="test.png"
+              style={{ maxWidth: '200px', height: 'auto', padding: '5px' }}
+            />
+            
+          </div>
+          <div style={{ textAlign: 'center', backgroundColor: '#004b34', color: 'white', flex: 21 }}>
+            <h1>Course Visualiser</h1>
           </div>
 
           <NavbarToggler onClick={toggle} />
