@@ -1,63 +1,93 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  Button,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
   Container,
-} from 'reactstrap'
-
-
+} from 'reactstrap';
 
 const NavBar = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  
-  const toggle = () => setIsOpen(!isOpen)
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = () => setIsOpen(!isOpen);
 
   return (
     <div className="nav-container mb-4">
       <Navbar style={{ backgroundColor: '#004b34' }} light expand="md" container={false}>
-        
         <Container>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <img 
-              src="/viclogo.png" 
-              alt="test.png"
-              style={{ maxWidth: '200px', height: 'auto', padding: '5px' }}
-            />
-            
+          <div
+            style={{
+              display: 'inline-flex',
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            <div
+              style={{
+                flex: '1',
+                textAlign: 'left',
+                paddingLeft: '5%',
+                paddingRight: '45%'
+              }}
+            >
+              <img
+                src="/viclogo.png"
+                alt="loading.svg"
+                style={{minWidth: '50px', maxWidth: '200px', height: 'auto', padding: '5px' }}
+              />
+            </div>
+            <h1
+              style={{
+                backgroundColor: '#004b34',
+                color: 'white',
+                margin: '0',
+                padding: '10px',
+                flex: '1',
+                display: 'inline-block',
+                
+              }}
+            >
+              Course Visualiser
+            </h1>
+            <div
+              style={{
+                flex: '1',
+                textAlign: 'right',
+                paddingRight: '0px',
+                paddingLeft: '50%',
+              }}
+            >
+              <button
+                style={{
+                  backgroundColor: '#004b34',
+                  color: 'white',
+                  border: 'none',
+                  padding: '0px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'flex-end',
+                }}
+              >
+                Export
+                <img
+                  src="/exportSave.png"
+                  alt="loading.svg"
+                  style={{ maxWidth: '50px', height: 'auto', padding: '5px', alignItems: 'right' }}
+                />
+              </button>
+            </div>
           </div>
-          <div style={{ textAlign: 'center', backgroundColor: '#004b34', color: 'white', flex: 4 }}>
-            <h1>Course Visualiser</h1>
-          </div>
-
           <NavbarToggler onClick={toggle} />
-
           <Collapse isOpen={isOpen} navbar>
-            <Nav className="me-auto" navbar>
-              {/* Links to go here */}
-            </Nav>
-
-            <Nav navbar>
-              
-            </Nav>
+            {/* Nav content here */}
           </Collapse>
         </Container>
       </Navbar>
-      
     </div>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;
