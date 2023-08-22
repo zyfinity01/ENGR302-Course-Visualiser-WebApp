@@ -43,7 +43,9 @@ class DatastoreService {
    * @returns time since last update (zero if no data exists)
    */
   getLastUpdatedTime(): number {
-    return 0;
+    if (!this.hasData()) return 0;
+    const stats = fs.statSync(this.dataFilePath);
+    return stats.mtime.getTime(); //return unix ms since epoch
   }
 }
 
