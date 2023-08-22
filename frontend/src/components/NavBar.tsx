@@ -18,19 +18,12 @@ import {
   Container,
 } from 'reactstrap'
 
-import { useAuth0 } from '@auth0/auth0-react'
+
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0()
+  
   const toggle = () => setIsOpen(!isOpen)
-
-  const logoutWithRedirect = () =>
-    logout({
-      logoutParams: {
-        returnTo: window.location.origin,
-      },
-    })
 
   return (
     <div className="nav-container mb-4">
@@ -45,7 +38,7 @@ const NavBar = () => {
             />
             
           </div>
-          <div style={{ textAlign: 'center', backgroundColor: '#004b34', color: 'white', flex: 21 }}>
+          <div style={{ textAlign: 'center', backgroundColor: '#004b34', color: 'white', flex: 4 }}>
             <h1>Course Visualiser</h1>
           </div>
 
@@ -58,38 +51,6 @@ const NavBar = () => {
 
             <Nav navbar>
               
-              {isAuthenticated && (
-                <NavItem>
-                  <NavLink tag={Link} to="admin">
-                    Admin Panel
-                  </NavLink>
-                </NavItem>
-              )}
-              {!isAuthenticated ? (
-                <NavItem>
-                  <Button onClick={() => loginWithRedirect()}>
-                    Admin Login
-                  </Button>
-                </NavItem>
-              ) : (
-                <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle nav caret id="profileDropDown">
-                    <img
-                      src={user?.picture}
-                      alt="Profile"
-                      className="nav-user-profile rounded-circle"
-                      width="25"
-                    />
-                  </DropdownToggle>
-                  <DropdownMenu>
-                    <DropdownItem header>{user?.name}</DropdownItem>
-                    <DropdownItem onClick={() => logoutWithRedirect()}>
-                      <FontAwesomeIcon icon="power-off" className="mr-3" />{' '}
-                      Logout
-                    </DropdownItem>
-                  </DropdownMenu>
-                </UncontrolledDropdown>
-              )}
             </Nav>
           </Collapse>
         </Container>
