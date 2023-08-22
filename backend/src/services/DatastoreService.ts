@@ -24,7 +24,8 @@ class DatastoreService {
    */
   getCourses(): Course[] {
     if (!this.hasData()) throw new Error('No data exists');
-    return [];
+    const jsonData = fs.readFileSync(this.dataFilePath, 'utf8');
+    return JSON.parse(jsonData) as Course[];
   }
   /**
    * @todo
