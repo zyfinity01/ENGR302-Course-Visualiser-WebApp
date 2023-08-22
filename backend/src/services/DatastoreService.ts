@@ -34,8 +34,7 @@ class DatastoreService {
    * @returns true if data exists
    */
   hasData(): boolean {
-    // todo
-    return false;
+    return fs.existsSync(this.dataFilePath);
   }
   /**
    * @todo
