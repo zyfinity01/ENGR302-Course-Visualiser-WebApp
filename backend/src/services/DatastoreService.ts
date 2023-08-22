@@ -1,6 +1,10 @@
+import {classToPlain } from 'class-transformer';
+import fs from 'fs';
+import path from 'path';
 import { Course } from '../models/course';
 
 class DatastoreService {
+  private dataFilePath: string = path.join(__dirname, 'data.json'); // Adjust the file path as needed
   /**
    * @todo
    *
@@ -8,7 +12,10 @@ class DatastoreService {
    * @param courses Courses list to save
    */
   saveCourses(courses: Course[]): void {
-    console.log(courses);
+    const coursesAsPlainObjects = classToPlain(courses); // Convert class instances to plain objects
+    const jsonData = JSON.stringify(coursesAsPlainObjects, null, 2); // Format JSON with 2 spaces indentation
+
+    fs.writeFileSync(this.dataFilePath, jsonData); // Write JSON data to the file
   }
   /**
    * @todo

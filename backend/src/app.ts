@@ -2,6 +2,8 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import express, { Express } from 'express';
 import UpdateService from './services/UpdateService';
+import 'reflect-metadata';
+
 
 import exportRoutes from './routes/export';
 
