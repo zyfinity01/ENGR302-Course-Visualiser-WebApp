@@ -1,91 +1,27 @@
-import { useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Collapse, Navbar, NavbarToggler, Container } from 'reactstrap'
+import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Collapse, Navbar, NavbarToggler, Container } from 'reactstrap';
+import { faFileExport } from '@fortawesome/free-solid-svg-icons';
 
 const NavBar = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
-  const toggle = () => setIsOpen(!isOpen)
+  const toggle = () => setIsOpen(!isOpen);
 
   return (
     <div className="nav-container mb-4">
-      <Navbar
-        style={{ backgroundColor: '#004b34' }}
-        light
-        expand="md"
-        container={false}
-      >
+      <Navbar style={{ backgroundColor: '#004b34' }} light expand="md">
         <Container>
-          <div
-            style={{
-              display: 'inline-flex',
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            <div
-              style={{
-                flex: '1',
-                textAlign: 'left',
-                paddingLeft: '5%',
-                paddingRight: '45%',
-              }}
-            >
-              <img
-                src="/viclogo.png"
-                alt="loading.svg"
-                style={{
-                  minWidth: '50px',
-                  maxWidth: '200px',
-                  height: 'auto',
-                  padding: '5px',
-                }}
-              />
+          <div className="d-flex justify-content-between align-items-center">
+            <div className="flex-grow-0">
+              <img src="/viclogo.png" alt="loading.svg" className="img-fluid" style={{ maxWidth: '150px' }} />
             </div>
-            <h1
-              style={{
-                backgroundColor: '#004b34',
-                color: 'white',
-                margin: '0',
-                padding: '10px',
-                flex: '1',
-                display: 'inline-block',
-              }}
-            >
+            <h1 className="flex-grow-1 text-white p-1 text-center ml-8 offset-md-2" style={{ backgroundColor: 'black' }}>
               Course Visualiser
             </h1>
-            <div
-              style={{
-                flex: '1',
-                textAlign: 'right',
-                paddingRight: '0px',
-                paddingLeft: '50%',
-              }}
-            >
-              <button
-                style={{
-                  backgroundColor: '#004b34',
-                  color: 'white',
-                  border: 'none',
-                  padding: '0px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'flex-end',
-                }}
-              >
-                Export
-                <img
-                  src="/exportSave.png"
-                  alt="loading.svg"
-                  style={{
-                    maxWidth: '50px',
-                    height: 'auto',
-                    padding: '5px',
-                    alignItems: 'right',
-                  }}
-                />
+            <div className="flex-grow-1">
+              <button className="text-white border-0 text-center offset-md-8" style={{ backgroundColor: '#004b34' }}>
+                Export <FontAwesomeIcon icon={faFileExport} className="ml-2" />
               </button>
             </div>
           </div>
@@ -96,7 +32,7 @@ const NavBar = () => {
         </Container>
       </Navbar>
     </div>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;
