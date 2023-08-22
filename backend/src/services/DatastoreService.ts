@@ -3,10 +3,10 @@ import fs from 'fs';
 import path from 'path';
 import { Course } from '../models/course';
 
+
 class DatastoreService {
-  private dataFilePath: string = path.join(__dirname, 'data.json'); // Adjust the file path as needed
+  private savePath: string = process.env.DATA_SAVE_PATH || './data'
   /**
-   * @todo
    *
    * Save courses to file.
    * @param courses Courses list to save
@@ -15,37 +15,42 @@ class DatastoreService {
     const coursesAsPlainObjects = classToPlain(courses); // Convert class instances to plain objects
     const jsonData = JSON.stringify(coursesAsPlainObjects, null, 2); // Format JSON with 2 spaces indentation
 
-    fs.writeFileSync(this.dataFilePath, jsonData); // Write JSON data to the file
+    fs.mkdirSync(this.savePath, { recursive: true })
+    fs.writeFileSync(this.getFilePath(), jsonData); // Write JSON data to the file
   }
   /**
-   * @todo
-   *
    * Retrieve courses from file.
+   *
    */
   getCourses(): Course[] {
     if (!this.hasData()) throw new Error('No data exists');
-    const jsonData = fs.readFileSync(this.dataFilePath, 'utf8');
+    const jsonData = fs.readFileSync(this.getFilePath(), 'utf8');
     return JSON.parse(jsonData) as Course[];
   }
   /**
-   * @todo
-   *
    * Check if data already exists.
+   *
    * @returns true if data exists
    */
   hasData(): boolean {
-    return fs.existsSync(this.dataFilePath);
+    return fs.existsSync(this.getFilePath());
   }
   /**
-   * @todo
-   *
    * Get the time the last save happened.
+   *
    * @returns time since last update (zero if no data exists)
    */
   getLastUpdatedTime(): number {
     if (!this.hasData()) return 0;
-    const stats = fs.statSync(this.dataFilePath);
+    const stats = fs.statSync(this.getFilePath());
     return stats.mtime.getTime(); //return unix ms since epoch
+  }
+  /**
+   * Get file path of save file
+   * @returns file path
+   */
+  private getFilePath(): string {
+    return path.join(this.savePath, 'courses.json')
   }
 }
 

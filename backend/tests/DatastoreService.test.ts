@@ -6,7 +6,7 @@ import { Course } from '../src/models/course';
 jest.mock('fs'); // Mock the fs module
 
 describe('DatastoreService', () => {
-  const testFilePath = path.join(__dirname, 'data.json');
+  const testFilePath = path.join('./data', 'courses.json');
 
   beforeEach(() => {
     // Mock fs.writeFileSync to prevent writing to the file system during tests
@@ -46,13 +46,7 @@ describe('DatastoreService', () => {
 
     expect(fs.writeFileSync).toHaveBeenCalledWith(
       testFilePath,
-      expect.stringContaining("'id': '1'"), // Use single quotes for id
-      'utf8'
-    );
-    expect(fs.writeFileSync).toHaveBeenCalledWith(
-      testFilePath,
-      expect.stringContaining("'id': '2'"), // Use single quotes for id
-      'utf8'
+      JSON.stringify(courses, null, 2)
     );
   });
 });
