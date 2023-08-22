@@ -1,13 +1,9 @@
-import { Router } from 'express'
-import StorageService from '../services/storageService'
+import { Router } from 'express';
 
-const router = Router()
+const router = Router();
 
 router.get('/csv', (req, res) => {
-  const csv = StorageService.getCSV()
+  res.status(200).send('hello world');
+});
 
-  res.setHeader('Content-Type', 'text/csv')
-  res.status(200).send(csv)
-})
-
-export default router
+export default router;
