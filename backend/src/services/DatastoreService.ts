@@ -3,9 +3,8 @@ import fs from 'fs';
 import path from 'path';
 import { Course } from '../models/course';
 
-
 class DatastoreService {
-  private savePath: string = process.env.DATA_SAVE_PATH || './data'
+  private savePath: string = process.env.DATA_SAVE_PATH || './data';
   /**
    *
    * Save courses to file.
@@ -15,7 +14,7 @@ class DatastoreService {
     const coursesAsPlainObjects = classToPlain(courses); // Convert class instances to plain objects
     const jsonData = JSON.stringify(coursesAsPlainObjects, null, 2); // Format JSON with 2 spaces indentation
 
-    fs.mkdirSync(this.savePath, { recursive: true })
+    fs.mkdirSync(this.savePath, { recursive: true });
     fs.writeFileSync(this.getFilePath(), jsonData); // Write JSON data to the file
   }
   /**
@@ -50,7 +49,7 @@ class DatastoreService {
    * @returns file path
    */
   private getFilePath(): string {
-    return path.join(this.savePath, 'courses.json')
+    return path.join(this.savePath, 'courses.json');
   }
 }
 
