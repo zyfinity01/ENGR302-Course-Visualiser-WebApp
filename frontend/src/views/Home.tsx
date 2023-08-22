@@ -1,15 +1,31 @@
-import React from 'react';
-import { Container } from 'reactstrap';
+import React from 'react'
+import { Container } from 'reactstrap'
 
 const Home = () => (
-  <div style={{ flexGrow: 1, backgroundColor: 'white', color: 'black', width: '100vw' }}>
+  <div
+    style={{
+      flexGrow: 1,
+      backgroundColor: 'white',
+      color: 'black',
+      width: '100vw',
+    }}
+  >
     <Container>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <h2 className="text-left" style={{ margin: '0' }}>
             Degree:
           </h2>
-          <select className="form-select" style={{ marginLeft: '10px', border: "2px solid black" }}>
+          <select
+            className="form-select"
+            style={{ marginLeft: '10px', border: '2px solid black' }}
+          >
             <option value="bsc">B.Sc.</option>
             <option value="ba">B.A.</option>
             {/* Add other options */}
@@ -20,7 +36,10 @@ const Home = () => (
           <h2 className="text-center" style={{ margin: '0' }}>
             Completed Courses:
           </h2>
-          <select className="form-select" style={{ marginLeft: '10px', border: "2px solid black" }}>
+          <select
+            className="form-select"
+            style={{ marginLeft: '10px', border: '2px solid black' }}
+          >
             <option value="course1">Course 1</option>
             <option value="course2">Course 2</option>
             {/* Add other options */}
@@ -43,6 +62,6 @@ const Home = () => (
       </div>
     </Container>
   </div>
-);
+)
 
-export default Home;
+export default Home

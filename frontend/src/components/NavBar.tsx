@@ -1,20 +1,20 @@
-import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  Container,
-} from 'reactstrap';
+import { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Collapse, Navbar, NavbarToggler, Container } from 'reactstrap'
 
 const NavBar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
-  const toggle = () => setIsOpen(!isOpen);
+  const toggle = () => setIsOpen(!isOpen)
 
   return (
     <div className="nav-container mb-4">
-      <Navbar style={{ backgroundColor: '#004b34' }} light expand="md" container={false}>
+      <Navbar
+        style={{ backgroundColor: '#004b34' }}
+        light
+        expand="md"
+        container={false}
+      >
         <Container>
           <div
             style={{
@@ -30,13 +30,18 @@ const NavBar = () => {
                 flex: '1',
                 textAlign: 'left',
                 paddingLeft: '5%',
-                paddingRight: '45%'
+                paddingRight: '45%',
               }}
             >
               <img
                 src="/viclogo.png"
                 alt="loading.svg"
-                style={{minWidth: '50px', maxWidth: '200px', height: 'auto', padding: '5px' }}
+                style={{
+                  minWidth: '50px',
+                  maxWidth: '200px',
+                  height: 'auto',
+                  padding: '5px',
+                }}
               />
             </div>
             <h1
@@ -47,7 +52,6 @@ const NavBar = () => {
                 padding: '10px',
                 flex: '1',
                 display: 'inline-block',
-                
               }}
             >
               Course Visualiser
@@ -75,7 +79,12 @@ const NavBar = () => {
                 <img
                   src="/exportSave.png"
                   alt="loading.svg"
-                  style={{ maxWidth: '50px', height: 'auto', padding: '5px', alignItems: 'right' }}
+                  style={{
+                    maxWidth: '50px',
+                    height: 'auto',
+                    padding: '5px',
+                    alignItems: 'right',
+                  }}
                 />
               </button>
             </div>
@@ -87,7 +96,7 @@ const NavBar = () => {
         </Container>
       </Navbar>
     </div>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar
