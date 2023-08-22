@@ -1,4 +1,4 @@
-import {classToPlain } from 'class-transformer';
+import { classToPlain } from 'class-transformer';
 import fs from 'fs';
 import path from 'path';
 import { Course } from '../models/course';
