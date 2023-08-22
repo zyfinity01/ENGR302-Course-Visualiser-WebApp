@@ -24,7 +24,8 @@ class DatastoreService {
    */
   getCourses(): Course[] {
     if (!this.hasData()) throw new Error('No data exists');
-    return [];
+    const jsonData = fs.readFileSync(this.dataFilePath, 'utf8');
+    return JSON.parse(jsonData) as Course[];
   }
   /**
    * @todo
@@ -33,8 +34,7 @@ class DatastoreService {
    * @returns true if data exists
    */
   hasData(): boolean {
-    // todo
-    return false;
+    return fs.existsSync(this.dataFilePath);
   }
   /**
    * @todo
@@ -43,7 +43,9 @@ class DatastoreService {
    * @returns time since last update (zero if no data exists)
    */
   getLastUpdatedTime(): number {
-    return 0;
+    if (!this.hasData()) return 0;
+    const stats = fs.statSync(this.dataFilePath);
+    return stats.mtime.getTime(); //return unix ms since epoch
   }
 }
 
