@@ -86,30 +86,29 @@ const Graph: React.FC<BasicFlowProps> = ({
     'LR' // left to right
   )
 
-
   return (
     <div id="react-flow-container" style={{ width: '100%', height: '100%' }}>
-    <ReactFlow
-      defaultNodes={layoutedNodes}
-      defaultEdges={layoutedEdges}
-      onNodeClick={onNodeClick}
-      onNodeDragStop={onNodeDragStop}
-      onNodeDrag={onNodeDrag}
-      minZoom={0.2}
-      maxZoom={4}
-      fitView
-      defaultEdgeOptions={{}}
-      selectNodesOnDrag={false}
-      elevateNodesOnSelect={false}
-    >
-      <Background variant={BackgroundVariant.Dots} />
-      <MiniMap />
-      <Controls />
+      <ReactFlow
+        defaultNodes={layoutedNodes}
+        defaultEdges={layoutedEdges}
+        onNodeClick={onNodeClick}
+        onNodeDragStop={onNodeDragStop}
+        onNodeDrag={onNodeDrag}
+        minZoom={0.2}
+        maxZoom={4}
+        fitView
+        defaultEdgeOptions={{}}
+        selectNodesOnDrag={false}
+        elevateNodesOnSelect={false}
+      >
+        <Background variant={BackgroundVariant.Dots} />
+        <MiniMap />
+        <Controls />
 
-      {/* <Panel position="top-right">
+        {/* <Panel position="top-right">
         <button onClick={() => instance.setViewport({ x: 0, y: 0, zoom: 1 })}>reset transform</button>
       </Panel> */}
-    </ReactFlow>
+      </ReactFlow>
     </div>
   )
 }
