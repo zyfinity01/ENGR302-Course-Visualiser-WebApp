@@ -86,7 +86,9 @@ const Graph: React.FC<BasicFlowProps> = ({
     'LR' // left to right
   )
 
+
   return (
+    <div id="react-flow-container" style={{ width: '100%', height: '100%' }}>
     <ReactFlow
       defaultNodes={layoutedNodes}
       defaultEdges={layoutedEdges}
@@ -108,6 +110,7 @@ const Graph: React.FC<BasicFlowProps> = ({
         <button onClick={() => instance.setViewport({ x: 0, y: 0, zoom: 1 })}>reset transform</button>
       </Panel> */}
     </ReactFlow>
+    </div>
   )
 }
 

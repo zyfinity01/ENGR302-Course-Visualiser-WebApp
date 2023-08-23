@@ -1,7 +1,11 @@
 import { Select, Option, Button } from '@material-tailwind/react'
 import Graph, { Node, Edge } from '../components/Graph'
 
-const Home = () => {
+interface HomeProps {
+  onExportClick: () => void;
+}
+
+const Home: React.FC<HomeProps> = ({ onExportClick }) => {
   const degrees = ['B.Sc.', 'B.A.']
   const completedCourses = ['Course 1', 'Course 2']
 
