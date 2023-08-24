@@ -1,8 +1,12 @@
 stages:
   - lint
+  - build
+  - deploy
 
 variables:
   NODE_IMAGE: 'node:latest'
+  DOCKER_IMAGE_BACKEND: 'localhost:5000/backend'
+  DOCKER_IMAGE_FRONTEND: 'localhost:5000/frontend'
 
 lint_backend:
   stage: lint
@@ -20,3 +24,50 @@ lint_frontend:
     - cd frontend
     - npm install
     - npm run lint
+
+
+build_backend:
+  stage: build
+  script:
+    - cd backend
+    - docker build -t $DOCKER_IMAGE_BACKEND:latest .
+  only:
+    - release
+
+build_frontend:
+  stage: build
+  script:
+    - cd frontend
+    - docker build -t $DOCKER_IMAGE_FRONTEND:latest .
+  only:
+    - release
+
+push_backend:
+  stage: deploy
+  script:
+    - docker push $DOCKER_IMAGE_BACKEND:latest
+  only:
+    - release
+
+push_frontend:
+  stage: deploy
+  script:
+    - docker push $DOCKER_IMAGE_FRONTEND:latest
+  only:
+    - release
+  
+# Optionally, you can add more jobs to this stage to deploy your services.
+# For example, if you're deploying to Kubernetes, you could add kubectl commands here.
+# deploy_backend:
+#   stage: deploy
+#   script:
+#     - deploy your backend service using Docker, Kubernetes, etc.
+#   only:
+#     - release
+
+# deploy_frontend:
+#   stage: deploy
+#   script:
+#     - deploy your frontend service using Docker, Kubernetes, etc.
+#   only:
+#     - release
