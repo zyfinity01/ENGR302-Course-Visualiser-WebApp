@@ -2,6 +2,7 @@ stages:
   - lint
   - build
   - deploy
+  - run
 
 variables:
   NODE_IMAGE: 'node:latest'
@@ -55,19 +56,19 @@ push_frontend:
     - docker push $DOCKER_IMAGE_FRONTEND:latest
   only:
     - release
-  
-# Optionally, you can add more jobs to this stage to deploy your services.
-# For example, if you're deploying to Kubernetes, you could add kubectl commands here.
-# deploy_backend:
-#   stage: deploy
-#   script:
-#     - deploy your backend service using Docker, Kubernetes, etc.
-#   only:
-#     - release
 
-# deploy_frontend:
-#   stage: deploy
-#   script:
-#     - deploy your frontend service using Docker, Kubernetes, etc.
-#   only:
-#     - release
+run_backend:
+  stage: run
+  script:
+    - docker run -d --name backend-container $DOCKER_IMAGE_BACKEND:latest
+  when: always
+  only:
+    - release
+
+run_frontend:
+  stage: run
+  script:
+    - docker run -d --name frontend-container $DOCKER_IMAGE_FRONTEND:latest
+  when: always
+  only:
+    - release
