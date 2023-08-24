@@ -44,16 +44,4 @@ describe('UpdateService', () => {
       'Catprint failed to return courses'
     );
   });
-
-  it('should return true if there is no data in the Datastore', () => {
-    (Datastore.hasData as jest.Mock).mockReturnValue(false);
-
-    expect(UpdateService.shouldUpdate()).toBe(true);
-  });
-
-  it('should return false if there is data in the Datastore', () => {
-    (Datastore.hasData as jest.Mock).mockReturnValue(true);
-
-    expect(UpdateService.shouldUpdate()).toBe(false);
-  });
 });

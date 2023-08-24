@@ -15,14 +15,6 @@ class UpdateService {
     RequirementService.setCoursePrerequisites(courses);
     Datastore.saveCourses(courses);
   }
-
-  /**
-   * See if update should occur because the data does not exist.
-   * @returns true if the data should be updated, else false.
-   */
-  shouldUpdate(): boolean {
-    return !Datastore.hasData();
-  }
 }
 
 export default new UpdateService();
