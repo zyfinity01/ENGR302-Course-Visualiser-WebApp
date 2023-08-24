@@ -60,6 +60,8 @@ push_frontend:
 run_backend:
   stage: run
   script:
+    - docker stop backend-container || true
+    - docker rm backend-container || true
     - docker run -d -p 3000:3000 --name backend-container $DOCKER_IMAGE_BACKEND:latest
   when: always
   only:
@@ -68,6 +70,8 @@ run_backend:
 run_frontend:
   stage: run
   script:
+    - docker stop frontend-container || true
+    - docker rm frontend-container || true
     - docker run -d -p 8080:8080 --name frontend-container $DOCKER_IMAGE_FRONTEND:latest
   when: always
   only:
