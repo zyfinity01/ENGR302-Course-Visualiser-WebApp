@@ -1,10 +1,10 @@
+import cron, { ScheduledTask } from 'node-cron';
 import UpdateService from './UpdateService';
 
-const cron = require('node-cron');
 const updateInterval = '0 0 1 * *'; // 12:00am on the 1st
 
 class SchedulerService {
-  task: any;
+  task: ScheduledTask | undefined;
   async init() {
     if (UpdateService.shouldUpdate()) {
       console.log('Fetching course data before scheduling');
