@@ -26,7 +26,6 @@ lint_frontend:
     - npm install
     - npm run lint
 
-
 build_backend:
   stage: build
   script:
