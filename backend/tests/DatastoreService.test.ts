@@ -16,8 +16,8 @@ describe('DatastoreService', () => {
       points: 100,
       level: 1,
       requirements: 'None',
-      prerequisites: []
-    }
+      prerequisites: [],
+    },
   ];
 
   afterEach(() => {
@@ -30,7 +30,10 @@ describe('DatastoreService', () => {
       DatastoreService.saveCourses(mockCourses);
 
       expect(fs.mkdirSync).toHaveBeenCalled();
-      expect(fs.writeFileSync).toHaveBeenCalledWith('./data/courses.json', JSON.stringify(mockCourses, null, 2));
+      expect(fs.writeFileSync).toHaveBeenCalledWith(
+        './data/courses.json',
+        JSON.stringify(mockCourses, null, 2)
+      );
     });
   });
 
@@ -38,7 +41,9 @@ describe('DatastoreService', () => {
     it('should retrieve courses from file', () => {
       (path.join as jest.Mock).mockReturnValue('./data/courses.json');
       (fs.existsSync as jest.Mock).mockReturnValue(true);
-      (fs.readFileSync as jest.Mock).mockReturnValue(JSON.stringify(mockCourses));
+      (fs.readFileSync as jest.Mock).mockReturnValue(
+        JSON.stringify(mockCourses)
+      );
 
       const result = DatastoreService.getCourses();
 
@@ -73,7 +78,9 @@ describe('DatastoreService', () => {
     it('should return time since last update', () => {
       (path.join as jest.Mock).mockReturnValue('./data/courses.json');
       (fs.existsSync as jest.Mock).mockReturnValue(true);
-      (fs.statSync as jest.Mock).mockReturnValue({ mtime: new Date('2023-08-25T10:00:00Z') });
+      (fs.statSync as jest.Mock).mockReturnValue({
+        mtime: new Date('2023-08-25T10:00:00Z'),
+      });
 
       const result = DatastoreService.getLastUpdatedTime();
 
