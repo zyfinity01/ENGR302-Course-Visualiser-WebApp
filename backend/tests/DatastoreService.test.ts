@@ -1,52 +1,90 @@
 import fs from 'fs';
 import path from 'path';
-import DatastoreService from '../src/services/DatastoreService';
+import DatastoreService from '../src/services/DatastoreService'; // Update this import path
 import { Course } from '../src/models/course';
 
-jest.mock('fs'); // Mock the fs module
+// Mocking the fs and path modules
+jest.mock('fs');
+jest.mock('path');
 
 describe('DatastoreService', () => {
-  const testFilePath = path.join('./data', 'courses.json');
-
-  beforeEach(() => {
-    // Mock fs.writeFileSync to prevent writing to the file system during tests
-    (fs.writeFileSync as jest.Mock).mockClear(); // Clear any previous calls
-  });
+  const mockCourses: Course[] = [
+    {
+      id: '1',
+      name: 'Test Course',
+      description: 'This is a test course',
+      points: 100,
+      level: 1,
+      requirements: 'None',
+      prerequisites: []
+    }
+  ];
 
   afterEach(() => {
-    // Clean up test file after each test
-    if (fs.existsSync(testFilePath)) {
-      fs.unlinkSync(testFilePath);
-    }
+    jest.clearAllMocks();
   });
 
-  it('should save courses to a JSON file', () => {
-    const courses: Course[] = [
-      {
-        id: '1',
-        name: 'Course 1',
-        description: 'aCourse',
-        points: 0,
-        level: 0,
-        requirements: '',
-        prerequisites: [],
-      },
-      {
-        id: '2',
-        name: 'Course 2',
-        description: 'aCourse',
-        points: 0,
-        level: 0,
-        requirements: '',
-        prerequisites: [],
-      },
-    ];
+  describe('saveCourses', () => {
+    it('should save courses to file', () => {
+      (path.join as jest.Mock).mockReturnValue('./data/courses.json');
+      DatastoreService.saveCourses(mockCourses);
 
-    DatastoreService.saveCourses(courses);
+      expect(fs.mkdirSync).toHaveBeenCalled();
+      expect(fs.writeFileSync).toHaveBeenCalledWith('./data/courses.json', JSON.stringify(mockCourses, null, 2));
+    });
+  });
 
-    expect(fs.writeFileSync).toHaveBeenCalledWith(
-      testFilePath,
-      JSON.stringify(courses, null, 2)
-    );
+  describe('getCourses', () => {
+    it('should retrieve courses from file', () => {
+      (path.join as jest.Mock).mockReturnValue('./data/courses.json');
+      (fs.existsSync as jest.Mock).mockReturnValue(true);
+      (fs.readFileSync as jest.Mock).mockReturnValue(JSON.stringify(mockCourses));
+
+      const result = DatastoreService.getCourses();
+
+      expect(result).toEqual(mockCourses);
+    });
+
+    it('should throw error if no data exists', () => {
+      (path.join as jest.Mock).mockReturnValue('./data/courses.json');
+      (fs.existsSync as jest.Mock).mockReturnValue(false);
+
+      expect(() => DatastoreService.getCourses()).toThrow('No data exists');
+    });
+  });
+
+  describe('hasData', () => {
+    it('should return true if data exists', () => {
+      (path.join as jest.Mock).mockReturnValue('./data/courses.json');
+      (fs.existsSync as jest.Mock).mockReturnValue(true);
+
+      expect(DatastoreService.hasData()).toBe(true);
+    });
+
+    it('should return false if data does not exist', () => {
+      (path.join as jest.Mock).mockReturnValue('./data/courses.json');
+      (fs.existsSync as jest.Mock).mockReturnValue(false);
+
+      expect(DatastoreService.hasData()).toBe(false);
+    });
+  });
+
+  describe('getLastUpdatedTime', () => {
+    it('should return time since last update', () => {
+      (path.join as jest.Mock).mockReturnValue('./data/courses.json');
+      (fs.existsSync as jest.Mock).mockReturnValue(true);
+      (fs.statSync as jest.Mock).mockReturnValue({ mtime: new Date('2023-08-25T10:00:00Z') });
+
+      const result = DatastoreService.getLastUpdatedTime();
+
+      expect(result).toBe(new Date('2023-08-25T10:00:00Z').getTime());
+    });
+
+    it('should return zero if no data exists', () => {
+      (path.join as jest.Mock).mockReturnValue('./data/courses.json');
+      (fs.existsSync as jest.Mock).mockReturnValue(false);
+
+      expect(DatastoreService.getLastUpdatedTime()).toBe(0);
+    });
   });
 });
