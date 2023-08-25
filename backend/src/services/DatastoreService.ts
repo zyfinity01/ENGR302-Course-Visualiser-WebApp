@@ -1,42 +1,55 @@
+import { classToPlain } from 'class-transformer';
+import fs from 'fs';
+import path from 'path';
 import { Course } from '../models/course';
 
 class DatastoreService {
+  private savePath: string = process.env.DATA_SAVE_PATH || './data';
   /**
-   * @todo
    *
    * Save courses to file.
    * @param courses Courses list to save
    */
   saveCourses(courses: Course[]): void {
-    console.log(courses);
+    const coursesAsPlainObjects = classToPlain(courses); // Convert class instances to plain objects
+    const jsonData = JSON.stringify(coursesAsPlainObjects, null, 2); // Format JSON with 2 spaces indentation
+
+    fs.mkdirSync(this.savePath, { recursive: true });
+    fs.writeFileSync(this.getFilePath(), jsonData); // Write JSON data to the file
   }
   /**
-   * @todo
-   *
    * Retrieve courses from file.
+   *
    */
   getCourses(): Course[] {
     if (!this.hasData()) throw new Error('No data exists');
-    return [];
+    const jsonData = fs.readFileSync(this.getFilePath(), 'utf8');
+    return JSON.parse(jsonData) as Course[];
   }
   /**
-   * @todo
-   *
    * Check if data already exists.
+   *
    * @returns true if data exists
    */
   hasData(): boolean {
-    // todo
-    return false;
+    return fs.existsSync(this.getFilePath());
   }
   /**
-   * @todo
-   *
    * Get the time the last save happened.
+   *
    * @returns time since last update (zero if no data exists)
    */
   getLastUpdatedTime(): number {
-    return 0;
+    if (!this.hasData()) return 0;
+    const stats = fs.statSync(this.getFilePath());
+    return stats.mtime.getTime(); //return unix ms since epoch
+  }
+  /**
+   * Get file path of save file
+   * @returns file path
+   */
+  private getFilePath(): string {
+    return path.join(this.savePath, 'courses.json');
   }
 }
 
