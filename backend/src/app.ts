@@ -2,6 +2,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import express, { Express } from 'express';
 import SchedulerService from './services/SchedulerService';
+import 'reflect-metadata';
 
 import exportRoutes from './routes/export';
 

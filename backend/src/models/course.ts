@@ -1,4 +1,7 @@
-export type Course = {
+import { Type } from 'class-transformer';
+
+export class Course {
+  @Type(() => String)
   id: string;
   name: string;
   description: string;
@@ -6,4 +9,4 @@ export type Course = {
   level: number;
   requirements: string;
   prerequisites: string[];
-};
+}
