@@ -1,8 +1,13 @@
 stages:
   - lint
+  - build
+  - deploy
+  - run
 
 variables:
   NODE_IMAGE: 'node:latest'
+  DOCKER_IMAGE_BACKEND: 'localhost:5000/backend'
+  DOCKER_IMAGE_FRONTEND: 'localhost:5000/frontend'
 
 lint_backend:
   stage: lint
@@ -20,3 +25,53 @@ lint_frontend:
     - cd frontend
     - npm install
     - npm run lint
+
+build_backend:
+  stage: build
+  script:
+    - cd backend
+    - docker build -t $DOCKER_IMAGE_BACKEND:latest .
+  only:
+    - release
+
+build_frontend:
+  stage: build
+  script:
+    - cd frontend
+    - docker build -t $DOCKER_IMAGE_FRONTEND:latest .
+  only:
+    - release
+
+push_backend:
+  stage: deploy
+  script:
+    - docker push $DOCKER_IMAGE_BACKEND:latest
+  only:
+    - release
+
+push_frontend:
+  stage: deploy
+  script:
+    - docker push $DOCKER_IMAGE_FRONTEND:latest
+  only:
+    - release
+
+run_backend:
+  stage: run
+  script:
+    - docker stop backend-container || true
+    - docker rm backend-container || true
+    - docker run -d -p 8080:8080 --name backend-container $DOCKER_IMAGE_BACKEND:latest
+  when: always
+  only:
+    - release
+
+run_frontend:
+  stage: run
+  script:
+    - docker stop frontend-container || true
+    - docker rm frontend-container || true
+    - docker run -d -p 3000:3000 --name frontend-container $DOCKER_IMAGE_FRONTEND:latest
+  when: always
+  only:
+    - release
