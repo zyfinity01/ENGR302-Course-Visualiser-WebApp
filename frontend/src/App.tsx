@@ -1,23 +1,14 @@
-import { Routes, Route, Outlet } from 'react-router-dom'
-import NavBar from './components/NavBar'
+import { Routes, Route } from 'react-router-dom'
+import Layout from './Layout'
 import Home from './views/Home'
 
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
+      <Route element={<Layout />}>
+        <Route path="/" element={<Home />} />
       </Route>
     </Routes>
-  )
-}
-
-function Layout() {
-  return (
-    <div>
-      <NavBar />
-      <Outlet />
-    </div>
   )
 }
 
