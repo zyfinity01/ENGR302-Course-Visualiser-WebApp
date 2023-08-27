@@ -1,4 +1,4 @@
-import { Course } from '../models/course';
+import { Course } from '../models/Course';
 
 /**
  * These are non-core subjects for engineering,

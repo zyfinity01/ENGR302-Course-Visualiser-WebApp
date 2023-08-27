@@ -4,7 +4,7 @@ import express, { Express } from 'express';
 import SchedulerService from './services/SchedulerService';
 import 'reflect-metadata';
 
-import exportRoutes from './routes/export';
+import courseRoutes from './routes/courses';
 
 dotenv.config();
 
@@ -14,7 +14,7 @@ const port = process.env.PORT || 8080;
 app.use(cors());
 app.options('*', cors());
 
-app.use('/api/export', exportRoutes);
+app.use('/api/courses', courseRoutes);
 
 async function init() {
   await SchedulerService.init();
