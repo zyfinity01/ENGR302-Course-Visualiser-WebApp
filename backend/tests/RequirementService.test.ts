@@ -1,4 +1,4 @@
-import { type Course } from '../src/models/course';
+import { type Course } from '../src/models/Course';
 import RequirementService from '../src/services/RequirementService';
 import { getMockCourse } from './util';
 

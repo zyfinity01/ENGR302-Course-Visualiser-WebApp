@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import DatastoreService from '../src/services/DatastoreService'; // Update this import path
-import { Course } from '../src/models/course';
+import { Course } from '../src/models/Course';
 
 // Mocking the fs and path modules
 jest.mock('fs');

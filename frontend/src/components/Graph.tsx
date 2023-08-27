@@ -1,4 +1,3 @@
-import { MouseEvent } from 'react'
 import ReactFlow, {
   MiniMap,
   Background,
@@ -13,19 +12,16 @@ import dagre from 'dagre'
 /*
  * Omit position from node as this is calculated dynamically
  */
-type ModifiedNode = Omit<Node, 'position'> & { position?: Node['position'] }
+export type NonPositionalNode = Omit<Node, 'position'> & {
+  position?: Node['position']
+}
 
 interface BasicFlowProps {
-  initialNodes: ModifiedNode[]
+  initialNodes: NonPositionalNode[]
   initialEdges: Edge[]
   nodeWidth?: number
   nodeHeight?: number
 }
-
-const onNodeDrag = (_: MouseEvent, node: Node) => console.log('drag', node)
-const onNodeDragStop = (_: MouseEvent, node: Node) =>
-  console.log('drag stop', node)
-const onNodeClick = (_: MouseEvent, node: Node) => console.log('click', node)
 
 const dagreGraph = new dagre.graphlib.Graph()
 dagreGraph.setDefaultEdgeLabel(() => ({}))
@@ -87,31 +83,26 @@ const Graph: React.FC<BasicFlowProps> = ({
   )
 
   return (
-    <div id="react-flow-container" style={{ width: '100%', height: '100%' }}>
-      <ReactFlow
-        defaultNodes={layoutedNodes}
-        defaultEdges={layoutedEdges}
-        onNodeClick={onNodeClick}
-        onNodeDragStop={onNodeDragStop}
-        onNodeDrag={onNodeDrag}
-        minZoom={0.2}
-        maxZoom={4}
-        fitView
-        defaultEdgeOptions={{}}
-        selectNodesOnDrag={false}
-        elevateNodesOnSelect={false}
-      >
-        <Background variant={BackgroundVariant.Dots} />
-        <MiniMap />
-        <Controls />
+    <ReactFlow
+      defaultNodes={layoutedNodes}
+      defaultEdges={layoutedEdges}
+      minZoom={0.2}
+      maxZoom={4}
+      fitView
+      defaultEdgeOptions={{}}
+      selectNodesOnDrag={false}
+      elevateNodesOnSelect={false}
+    >
+      <Background variant={BackgroundVariant.Dots} />
+      <MiniMap />
+      <Controls />
 
-        {/* <Panel position="top-right">
+      {/* <Panel position="top-right">
         <button onClick={() => instance.setViewport({ x: 0, y: 0, zoom: 1 })}>reset transform</button>
       </Panel> */}
-      </ReactFlow>
-    </div>
+    </ReactFlow>
   )
 }
 
 export default Graph
-export type { ModifiedNode as Node, Edge }
+export type { NonPositionalNode as Node, Edge }

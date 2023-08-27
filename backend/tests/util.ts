@@ -1,4 +1,4 @@
-import { Course } from '../src/models/course';
+import { Course } from '../src/models/Course';
 
 export function getMockCourse(id: string, requirements: string): Course {
   return {
