@@ -1,7 +1,7 @@
 import { classToPlain } from 'class-transformer';
 import fs from 'fs';
 import path from 'path';
-import { Course } from '../models/course';
+import { Course } from '../models/Course';
 
 class DatastoreService {
   private savePath: string = process.env.DATA_SAVE_PATH || './data';

@@ -1,40 +1,29 @@
 import { Select, Option, Button } from '@material-tailwind/react'
-import Graph, { Node, Edge } from '../components/Graph'
+import Graph from '../components/Graph'
+import { useEffect, useMemo, useState } from 'react'
+import CourseAPI from '../services/CourseAPI'
+import CourseToGraph from '../services/CourseToGraph'
 
 const Home = () => {
-  const degrees = ['B.Sc.', 'B.A.']
-  const completedCourses = ['Course 1', 'Course 2']
+  const degrees = useMemo(() => ['B.Sc.', 'B.A.'], [])
+  const completedCourses = useMemo(() => ['SWEN 301', 'ENGR 301'], [])
 
-  const initialNodes: Node[] = [
-    {
-      id: '1',
-      type: 'input',
-      data: { label: 'COMP301' },
-    },
-    {
-      id: '2',
-      data: { label: 'CYBR371' },
-    },
-    {
-      id: '3',
-      data: { label: 'ENGR301' },
-    },
-    {
-      id: '4',
-      data: { label: 'ENGR302' },
-    },
-  ]
+  const [graphData, setGraphData] = useState<any>(null)
 
-  const initialEdges: Edge[] = [
-    {
-      id: 'e3-2',
-      source: '3',
-      target: '4',
-      type: 'smoothstep',
-      animated: true,
-    },
-    { id: 'e1-3', source: '1', target: '3', type: 'smoothstep' },
-  ]
+  useEffect(() => {
+    async function fetchData() {
+      CourseAPI.getPathwayData(completedCourses)
+        .then((data) => {
+          const graphData = CourseToGraph.convertToReactFlowFormat(data)
+          setGraphData(graphData)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
+
+    fetchData()
+  }, [completedCourses])
 
   return (
     <>

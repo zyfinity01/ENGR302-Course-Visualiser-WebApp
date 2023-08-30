@@ -1,5 +1,5 @@
 import { HTMLElement, parse } from 'node-html-parser';
-import { Course } from '../models/course';
+import { Course } from '../models/Course';
 
 class CatprintService {
   /**
