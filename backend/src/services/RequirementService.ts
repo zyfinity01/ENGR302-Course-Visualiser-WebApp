@@ -59,13 +59,13 @@ class RequirementService {
 
       const isEligible =
         prerequisites.every((x) =>
-          x.isRequirementMeet(courses, selectedCourses)
+          x.isRequirementMet(courses, selectedCourses)
         ) &&
         corestrictions.every(
-          (x) => !x.isRequirementMeet(courses, selectedCourses)
+          (x) => !x.isRequirementMet(courses, selectedCourses)
         ) &&
         restrictions.every(
-          (x) => !x.isRequirementMeet(courses, selectedCourses)
+          (x) => !x.isRequirementMet(courses, selectedCourses)
         );
 
       course.status = isEligible

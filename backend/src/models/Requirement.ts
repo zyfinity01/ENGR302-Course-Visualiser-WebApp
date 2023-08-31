@@ -3,7 +3,7 @@ import { Course } from './Course';
 export abstract class Requirement {
   constructor(public type: string) {}
 
-  abstract isRequirementMeet(allCourses: Course[], selected: string[]): boolean;
+  abstract isRequirementMet(allCourses: Course[], selected: string[]): boolean;
 
   abstract isParsedCorrect(): boolean;
 }
@@ -13,9 +13,9 @@ export class AnyRequirement extends Requirement {
     super('any');
   }
 
-  isRequirementMeet(allCourses: Course[], selected: string[]): boolean {
+  isRequirementMet(allCourses: Course[], selected: string[]): boolean {
     return this.conditions.some((x) =>
-      x.isRequirementMeet(allCourses, selected)
+      x.isRequirementMet(allCourses, selected)
     );
   }
 
@@ -29,9 +29,9 @@ export class AndRequirement extends Requirement {
     super('and');
   }
 
-  isRequirementMeet(allCourses: Course[], selected: string[]): boolean {
+  isRequirementMet(allCourses: Course[], selected: string[]): boolean {
     return this.conditions.every((x) =>
-      x.isRequirementMeet(allCourses, selected)
+      x.isRequirementMet(allCourses, selected)
     );
   }
 
@@ -48,7 +48,7 @@ export class PointRequirement extends Requirement {
     super('point');
   }
 
-  isRequirementMeet(courses: Course[], selected: string[]): boolean {
+  isRequirementMet(courses: Course[], selected: string[]): boolean {
     const points = courses
       .filter((x) => selected.includes(x.id))
       .filter((x) => x.level == this.level)
@@ -68,7 +68,7 @@ export class CourseRequirement extends Requirement {
     super('course');
   }
 
-  isRequirementMeet(_: Course[], selected: string[]): boolean {
+  isRequirementMet(_: Course[], selected: string[]): boolean {
     return selected.includes(this.course);
   }
 
@@ -82,7 +82,7 @@ export class BadParseRequirement extends Requirement {
     super('bad');
   }
 
-  isRequirementMeet(): boolean {
+  isRequirementMet(): boolean {
     return true;
   }
 
