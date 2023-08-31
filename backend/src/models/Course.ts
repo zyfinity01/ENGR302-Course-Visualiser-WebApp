@@ -1,7 +1,11 @@
-import { Type } from 'class-transformer';
+export enum CourseStatus {
+  None,
+  Selected,
+  Eligible,
+  Ineligible,
+}
 
 export class Course {
-  @Type(() => String)
   id: string;
   name: string;
   description: string;
@@ -9,4 +13,5 @@ export class Course {
   level: number;
   requirements: string;
   prerequisites: string[];
+  status: CourseStatus;
 }

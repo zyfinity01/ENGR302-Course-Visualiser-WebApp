@@ -1,5 +1,5 @@
 import CourseQueryService from '../src/services/CourseQueryService';
-import { Course } from '../src/models/Course';
+import { Course, CourseStatus } from '../src/models/Course';
 
 describe('CourseQueryService', () => {
   const courses: Course[] = [
@@ -11,6 +11,7 @@ describe('CourseQueryService', () => {
       level: 400,
       requirements: '(P) ENGR 302',
       prerequisites: ['ENGR 302'],
+      status: CourseStatus.None,
     },
     {
       id: 'ENGR 302',
@@ -20,6 +21,7 @@ describe('CourseQueryService', () => {
       level: 300,
       requirements: '',
       prerequisites: [],
+      status: CourseStatus.None,
     },
     {
       id: 'BIO 101',
@@ -29,6 +31,7 @@ describe('CourseQueryService', () => {
       level: 100,
       requirements: '',
       prerequisites: [],
+      status: CourseStatus.None,
     },
   ];
 
