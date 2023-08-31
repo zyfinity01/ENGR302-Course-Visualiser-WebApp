@@ -18,7 +18,7 @@ test('parse all courses', async () => {
       course,
       '(P)'
     );
-    const corestrictions = RequirementService.extractAndParseRequirements(
+    const corequisites = RequirementService.extractAndParseRequirements(
       course,
       '(C)'
     );
@@ -29,7 +29,7 @@ test('parse all courses', async () => {
 
     const isParsedCorrect =
       prerequisites.every((x) => x.isParsedCorrect()) &&
-      corestrictions.every((x) => x.isParsedCorrect()) &&
+      corequisites.every((x) => x.isParsedCorrect()) &&
       restrictions.every((x) => x.isParsedCorrect());
 
     expect(isParsedCorrect).toEqual(true);

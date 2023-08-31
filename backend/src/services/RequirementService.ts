@@ -54,15 +54,15 @@ class RequirementService {
       }
 
       const prerequisites = this.extractAndParseRequirements(course, '(P)');
-      const corestrictions = this.extractAndParseRequirements(course, '(C)');
+      const corequisites = this.extractAndParseRequirements(course, '(C)');
       const restrictions = this.extractAndParseRequirements(course, '(X)');
 
       const isEligible =
         prerequisites.every((x) =>
           x.isRequirementMet(courses, selectedCourses)
         ) &&
-        corestrictions.every(
-          (x) => !x.isRequirementMet(courses, selectedCourses)
+        corequisites.every((x) =>
+          x.isRequirementMet(courses, selectedCourses)
         ) &&
         restrictions.every(
           (x) => !x.isRequirementMet(courses, selectedCourses)
