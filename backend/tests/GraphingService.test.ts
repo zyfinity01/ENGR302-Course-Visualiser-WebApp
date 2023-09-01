@@ -1,5 +1,5 @@
 import GraphingService from '../src/services/GraphingService';
-import { Course } from '../src/models/Course';
+import { Course, CourseStatus } from '../src/models/Course';
 
 describe('GraphingService', () => {
   describe('getNodesAndEdges', () => {
@@ -13,6 +13,7 @@ describe('GraphingService', () => {
           level: 400,
           requirements: '(P) ENGR 302',
           prerequisites: ['ENGR 302'],
+          status: CourseStatus.None,
         },
         {
           id: 'ENGR 302',
@@ -22,6 +23,7 @@ describe('GraphingService', () => {
           level: 300,
           requirements: '',
           prerequisites: [],
+          status: CourseStatus.None,
         },
       ];
 

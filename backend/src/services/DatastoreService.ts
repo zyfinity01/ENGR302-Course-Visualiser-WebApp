@@ -1,4 +1,3 @@
-import { classToPlain } from 'class-transformer';
 import fs from 'fs';
 import path from 'path';
 import { Course } from '../models/Course';
@@ -11,8 +10,7 @@ class DatastoreService {
    * @param courses Courses list to save
    */
   saveCourses(courses: Course[]): void {
-    const coursesAsPlainObjects = classToPlain(courses); // Convert class instances to plain objects
-    const jsonData = JSON.stringify(coursesAsPlainObjects, null, 2); // Format JSON with 2 spaces indentation
+    const jsonData = JSON.stringify(courses, null, 2); // Format JSON with 2 spaces indentation
 
     fs.mkdirSync(this.savePath, { recursive: true });
     fs.writeFileSync(this.getFilePath(), jsonData); // Write JSON data to the file

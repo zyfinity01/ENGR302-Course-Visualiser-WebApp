@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import DatastoreService from '../src/services/DatastoreService'; // Update this import path
-import { Course } from '../src/models/Course';
+import { Course, CourseStatus } from '../src/models/Course';
 
 // Mocking the fs and path modules
 jest.mock('fs');
@@ -17,6 +17,7 @@ describe('DatastoreService', () => {
       level: 1,
       requirements: 'None',
       prerequisites: [],
+      status: CourseStatus.None,
     },
   ];
 

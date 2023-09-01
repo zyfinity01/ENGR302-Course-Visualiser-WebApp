@@ -1,5 +1,5 @@
 import { HTMLElement, parse } from 'node-html-parser';
-import { Course } from '../models/Course';
+import { Course, CourseStatus } from '../models/Course';
 
 class CatprintService {
   /**
@@ -74,6 +74,7 @@ class CatprintService {
         points: points,
         level: level,
         prerequisites: [],
+        status: CourseStatus.None,
       });
     }
 
