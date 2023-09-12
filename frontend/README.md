@@ -13,7 +13,7 @@ npm install
 Create an environment file from the example template
 
 ```bash
-cp .env.example .env
+cp .example.env .env
 ```
 
 Fill in the required variables, for example, using nano
