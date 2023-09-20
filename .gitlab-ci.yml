@@ -71,6 +71,8 @@ run_frontend:
   script:
     - docker stop frontend-container || true
     - docker rm frontend-container || true
+    - echo COURSE_API_URL=
+    - echo $COURSE_API_URL
     - docker run -d -p 3000:3000 -e COURSE_API_URL=$COURSE_API_URL --name frontend-container $DOCKER_IMAGE_FRONTEND:latest
   when: always
   only:
