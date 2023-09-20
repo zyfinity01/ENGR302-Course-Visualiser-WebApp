@@ -1,6 +1,6 @@
 class CourseAPI {
   protected static API_URL =
-    process.env.REACT_COURSE_API_URL || 'http://localhost:8080'
+    process.env.REACT_APP_COURSE_API_URL || 'http://localhost:8080'
 
   static async getPathwayData(completedCourses?: string[]) {
     try {
