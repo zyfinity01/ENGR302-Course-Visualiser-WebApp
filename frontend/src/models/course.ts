@@ -1,3 +1,10 @@
+export enum CourseStatus {
+  None,
+  Selected,
+  Eligible,
+  Ineligible,
+}
+
 export type Course = {
   id: string
   name: string
@@ -6,4 +13,5 @@ export type Course = {
   level: number
   requirements: string
   prerequisites: string[]
+  status: CourseStatus
 }

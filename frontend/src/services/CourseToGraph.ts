@@ -1,4 +1,4 @@
-import { Course } from '../models/course'
+import { Course, CourseStatus } from '../models/course'
 import { Node, Edge } from '../components/Graph'
 import dagre from 'dagre'
 
@@ -7,10 +7,14 @@ interface Graph {
   edges: { sourceId: string; targetId: string }[]
 }
 
-export function convertToReactFlowFormat(graph: Graph) {
+export function convertToReactFlowFormat(graph: Graph): {
+  nodes: Node[]
+  edges: Edge[]
+} {
   const nodes: Node[] = graph.nodes.map((node) => ({
     id: node.id,
     data: { label: node.course.id },
+    style: statusToStyle(node.course.status),
   }))
 
   const edges: Edge[] = graph.edges.map((edge, index) => ({
@@ -24,6 +28,24 @@ export function convertToReactFlowFormat(graph: Graph) {
   return {
     nodes,
     edges,
+  }
+}
+
+export function statusToStyle(status: CourseStatus): any {
+  switch (status) {
+    case CourseStatus.Eligible:
+      return {
+        background: '#58e260',
+        color: '#fff',
+      }
+    case CourseStatus.Ineligible:
+      return {
+        background: '#ff4c23',
+        color: '#fff',
+      }
+    case CourseStatus.None:
+    case CourseStatus.Selected:
+      return {}
   }
 }
 
