@@ -7,7 +7,6 @@ interface Graph {
   edges: { sourceId: string; targetId: string }[]
 }
 
-
 export function convertToReactFlowFormat(graph: Graph): {
   nodes: Node[]
   edges: Edge[]
@@ -49,7 +48,6 @@ export function statusToStyle(status: CourseStatus): any {
       return {}
   }
 }
-
 
 export function getLayoutedElements(
   nodes: any[],
