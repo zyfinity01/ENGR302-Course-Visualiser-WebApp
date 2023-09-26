@@ -19,6 +19,7 @@ const NavBar: React.FC<NavBarProps> = ({ onExportClick }) => {
       {/* Export Button */}
       <button
         onClick={onExportClick}
+        id="export-graph-button"
         className="flex justify-center items-center ml-auto"
       >
         Export <FontAwesomeIcon icon={faFileExport} className="ml-2" />
