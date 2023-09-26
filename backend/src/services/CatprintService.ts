@@ -14,7 +14,7 @@ class CatprintService {
       { directory: 'Computer%20Science', programme: 'p' },
     ];
 
-    var courses = (
+    let courses = (
       await Promise.all(
         programmes.map((p) =>
           this.getCoursesForProgramme(p.directory, p.programme)
@@ -76,12 +76,12 @@ class CatprintService {
     const results = [];
     const elements = root.querySelectorAll('.Section1 *');
 
-    var courseId = '';
-    var courseName = '';
-    var description = '';
-    var requirements = '';
-    var level = 0;
-    var points = 0;
+    let courseId = '';
+    let courseName = '';
+    let description = '';
+    let requirements = '';
+    let level = 0;
+    let points = 0;
 
     for (const element of elements) {
       if (!element.classNames) {
