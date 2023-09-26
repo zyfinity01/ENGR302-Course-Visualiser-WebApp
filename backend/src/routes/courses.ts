@@ -9,7 +9,7 @@ const router = Router();
 router.get('/pathway', async (req, res) => {
   try {
     const courseParam = req.query.completedCourses as string | undefined;
-    const completedCourses = false && courseParam && JSON.parse(courseParam);
+    const completedCourses = courseParam && JSON.parse(courseParam);
 
     const allCourses = DatastoreService.getCourses();
 
