@@ -7,7 +7,6 @@ import CourseToGraph from '../services/CourseToGraph'
 const Home = () => {
   const degrees = useMemo(() => ['B.Sc.', 'B.A.'], [])
   const completedCourses = useMemo(() => ['SWEN 301', 'ENGR 301'], [])
-
   const [graphData, setGraphData] = useState<any>(null)
 
   useEffect(() => {

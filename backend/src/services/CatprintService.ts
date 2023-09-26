@@ -22,7 +22,22 @@ class CatprintService {
       )
     ).flat();
 
-    return courses;
+    return this.getDuplicateFreeCourses(courses);
+  }
+
+  getDuplicateFreeCourses(courses: Course[]): Course[] {
+    const duplicateFree = [];
+    const seen = new Set<string>();
+    for (const course of courses) {
+      if (seen.has(course.id)) {
+        continue;
+      }
+
+      seen.add(course.id);
+      duplicateFree.push(course);
+    }
+
+    return duplicateFree;
   }
 
   /**

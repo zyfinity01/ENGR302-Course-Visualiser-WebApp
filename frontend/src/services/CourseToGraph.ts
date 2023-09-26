@@ -1,4 +1,4 @@
-import { Course } from '../models/course'
+import { Course, CourseStatus } from '../models/course'
 import { Node, Edge } from '../components/Graph'
 
 interface Graph {
@@ -14,6 +14,7 @@ class CourseToGraph {
     const nodes: Node[] = graph.nodes.map((node) => ({
       id: node.id,
       data: { label: node.course.id },
+      style: this.statusToStyle(node.course.status),
     }))
 
     const edges: Edge[] = graph.edges.map((edge, index) => ({
@@ -27,6 +28,24 @@ class CourseToGraph {
     return {
       nodes,
       edges,
+    }
+  }
+
+  static statusToStyle(status: CourseStatus): any {
+    switch (status) {
+      case CourseStatus.Eligible:
+        return {
+          background: '#58e260',
+          color: '#fff',
+        }
+      case CourseStatus.Ineligible:
+        return {
+          background: '#ff4c23',
+          color: '#fff',
+        }
+      case CourseStatus.None:
+      case CourseStatus.Selected:
+        return {}
     }
   }
 }
