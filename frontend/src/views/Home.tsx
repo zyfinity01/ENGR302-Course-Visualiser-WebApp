@@ -67,6 +67,7 @@ const Home = () => {
         setCompletedCourses(Array.from(selectedCourses))
         break
       case 'reset':
+        setViewport(undefined)
         setSelectedCourses(new Set())
         setCompletedCourses([])
         break
