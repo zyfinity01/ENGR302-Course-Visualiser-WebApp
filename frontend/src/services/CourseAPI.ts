@@ -6,7 +6,7 @@ class CourseAPI {
     try {
       const url = new URL(`${CourseAPI.API_URL}/api/courses/pathway`)
 
-      if (completedCourses) {
+      if (completedCourses && completedCourses.length > 0) {
         url.searchParams.append(
           'completedCourses',
           JSON.stringify(completedCourses)
