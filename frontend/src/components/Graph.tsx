@@ -10,6 +10,7 @@ import ReactFlow, {
 import dagre from 'dagre'
 import { useEffect } from 'react'
 import { getLayoutedElements } from '../services/CourseToGraph'
+import { LabelNode } from '../nodes/LabelNode'
 
 export type NonPositionalNode = Omit<Node, 'position'> & {
   position?: Node['position'] // Omit position from node as this is calculated dynamically
@@ -61,12 +62,29 @@ const Graph: React.FC<BasicFlowProps> = ({
     return false
   }
 
+    focusNodeRef(focusNodes)
+
+    /*
+    // Identify the first nodes at levels 100, 200, 300, and 400
+    const levels = [100, 200, 300, 400]
+    const firstNodesAtLevels = levels.map(level =>
+      layoutedNodes.find(n => n.data?.course?.level === level)
+    ).filter(Boolean).map(n => n!.id)
+
+    // Focus on these nodes
+    if (firstNodesAtLevels.length > 0) {
+      focusNodes(firstNodesAtLevels)
+    }*/ 
+
+  }, [focusNodeRef, layoutedNodes, reactFlowInstance])
+
   return (
     <ReactFlow
       defaultNodes={layoutedNodes}
       defaultEdges={layoutedEdges}
       minZoom={0.2}
       maxZoom={4}
+      nodeTypes={{ label: LabelNode }}
       fitView
       defaultEdgeOptions={{}}
       selectNodesOnDrag={false}

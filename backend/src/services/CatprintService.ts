@@ -14,13 +14,20 @@ class CatprintService {
       { directory: 'Computer%20Science', programme: 'p' },
     ];
 
-    const courses = (
+    var courses = (
       await Promise.all(
         programmes.map((p) =>
           this.getCoursesForProgramme(p.directory, p.programme)
         )
       )
     ).flat();
+
+    courses = courses
+      .filter(x => !x.name.toLowerCase().startsWith('special topic'))
+      .filter(x => !x.description.toLowerCase().startsWith('to be advised'))
+      .filter(x => !x.description.toLowerCase().startsWith('to be confirmed'))
+      .filter(x => !x.requirements.toLowerCase().includes('permission'))
+      .filter(x => x.level < 500);
 
     return this.getDuplicateFreeCourses(courses);
   }
@@ -29,11 +36,11 @@ class CatprintService {
     const duplicateFree = [];
     const seen = new Set<string>();
     for (const course of courses) {
-      if (seen.has(course.id)) {
+      if (seen.has(course.id + course.trimester)) {
         continue;
       }
 
-      seen.add(course.id);
+      seen.add(course.id + course.trimester);
       duplicateFree.push(course);
     }
 
@@ -66,33 +73,55 @@ class CatprintService {
    * @returns An array of courses.
    */
   private parseCoursesFromHtml(root: HTMLElement): Course[] {
-    const courseIds = root.querySelectorAll('.courseid');
-    const subjectBodies = root.querySelectorAll('.subjectsbody');
-    const coursePoints = root.querySelectorAll('.coursepoints');
+    const results = [];
+    const elements = root.querySelectorAll('.Section1 *');
 
-    const results: Course[] = [];
-    for (let i = 0; i < courseIds.length; i++) {
-      const courseIdAndName = courseIds[i].textContent.split('–');
-      const pointsAndRequirements = coursePoints[i].textContent.split('•');
-      const points = parseInt(
-        pointsAndRequirements[0].replace(' pts', '').trim()
-      );
-      const requirements =
-        pointsAndRequirements.length > 1 ? pointsAndRequirements[1].trim() : '';
-      const level = parseInt(courseIdAndName[0].split(' ')[1][0] + '00');
+    var courseId = '';
+    var courseName = '';
+    var description = '';
+    var requirements = '';
+    var level = 0;
+    var points = 0;
+    
+    for (const element of elements) {
+      if (!element.classNames) {
+        continue;
+      }
 
-      results.push({
-        id: courseIdAndName[0].trim(),
-        name: courseIdAndName[1].trim(),
-        description: subjectBodies[i].textContent,
-        requirements: requirements,
-        points: points,
-        level: level,
-        prerequisites: [],
-        status: CourseStatus.None,
-      });
+      if (element.classNames.includes('courseid')) {
+        const courseIdAndName = element.textContent.split('–');
+        courseId = courseIdAndName[0].trim();
+        courseName = courseIdAndName[1].trim();
+        level = parseInt(courseIdAndName[0].split(' ')[1][0] + '00');
+      }
+
+      else if (element.classNames.includes('subjectsbody')) {
+        description = element.textContent;
+      }
+
+      else if (element.classNames.includes('coursepoints')) {
+        const pointsAndRequirements = element.textContent.split('•');
+        points = parseInt(pointsAndRequirements[0].replace(' pts', '').trim());
+        requirements = pointsAndRequirements.length > 1 ? pointsAndRequirements[1].trim() : '';
+      }
+
+      else if (element.classNames.includes('timetable')) {
+        const trimester = parseInt(element.textContent.split('•')[0].trim().split('/')[0]);
+
+        results.push({
+          id: courseId,
+          name: courseName,
+          description: description,
+          requirements: requirements,
+          points: points,
+          level: level,
+          prerequisites: [],
+          status: CourseStatus.None,
+          trimester: trimester
+        });
+      }
     }
-
+    
     return results;
   }
 }
