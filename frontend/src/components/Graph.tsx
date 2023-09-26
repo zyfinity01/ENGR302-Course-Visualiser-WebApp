@@ -8,6 +8,11 @@ import ReactFlow, {
   Viewport,
 } from 'reactflow'
 
+import { LabelNode } from '../nodes/LabelNode'
+
+export type NonPositionalNode = Omit<Node, 'position'> & {
+  position?: Node['position'] // Omit position from node as this is calculated dynamically
+}
 interface BasicFlowProps {
   nodes: Node[]
   edges: Edge[]
@@ -37,6 +42,7 @@ const Graph: React.FC<BasicFlowProps> = ({
       defaultEdges={edges}
       minZoom={0.2}
       maxZoom={4}
+      nodeTypes={{ label: LabelNode }}
       defaultEdgeOptions={{}}
       selectNodesOnDrag={false}
       elevateNodesOnSelect={false}
