@@ -6,7 +6,7 @@ import Tutorial from '../components/Tutorial'
 import useFetchCourseData from '../hooks/useFetchGraphData'
 
 const Home = () => {
-  const [completedCourses, setCompletedCourses] = useState<string[]>([])
+  const [completedCourses, setCompletedCourses] = useState<string[]>(['SWEN 301', 'ENGR 301'])
   const [graphData, setGraphData] = useState<
     { nodes: NonPositionalNode[]; edges: Edge[] } | undefined
   >(undefined)
