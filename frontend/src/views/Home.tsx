@@ -1,67 +1,51 @@
-import { Select, Option, Button } from '@material-tailwind/react'
-import Graph from '../components/Graph'
-import { useEffect, useMemo, useState } from 'react'
-import CourseAPI from '../services/CourseAPI'
-import CourseToGraph from '../services/CourseToGraph'
+import Graph, { Edge, NonPositionalNode } from '../components/Graph'
+import { useEffect, useState } from 'react'
+import { convertToReactFlowFormat } from '../services/CourseToGraph'
+import Search from '../components/Search'
+import Tutorial from '../components/Tutorial'
+import useFetchCourseData from '../hooks/useFetchGraphData'
 
 const Home = () => {
-  const degrees = useMemo(() => ['B.Sc.', 'B.A.'], [])
-  const completedCourses = useMemo(() => ['SWEN 301', 'ENGR 301'], [])
-  const [graphData, setGraphData] = useState<any>(null)
+  const [completedCourses, setCompletedCourses] = useState<string[]>([])
+  const [graphData, setGraphData] = useState<
+    { nodes: NonPositionalNode[]; edges: Edge[] } | undefined
+  >(undefined)
+  let focusNodeFunction: (id: string) => boolean = () => false
+
+  const { nodeEdgeData } = useFetchCourseData(completedCourses)
 
   useEffect(() => {
-    async function fetchData() {
-      CourseAPI.getPathwayData(completedCourses)
-        .then((data) => {
-          const graphData = CourseToGraph.convertToReactFlowFormat(data)
-          setGraphData(graphData)
-        })
-        .catch((error) => {
-          console.log(error)
-        })
-    }
+    if (!nodeEdgeData) return
+    setGraphData(convertToReactFlowFormat(nodeEdgeData))
+  }, [nodeEdgeData])
 
-    fetchData()
-  }, [completedCourses])
+  const handleSearch = (course: string) => {
+    const found = focusNodeFunction(course)
+    if (!found) {
+      alert('Course not found!')
+    }
+  }
 
   return (
     <>
-      {/*Select Menu*/}
-      <div className="flex flex-col space-y-2 md:space-y-0 md:flex-row md:space-x-2 pt-2 mx-5">
-        {/* Degree Selector */}
-        <Select label="Degree">
-          {degrees.map((degree, index) => (
-            <Option value={degree} key={index}>
-              {degree}
-            </Option>
-          ))}
-        </Select>
+      <Tutorial />
 
-        {/* Completed Courses */}
-        <Select label="Completed Courses">
-          {completedCourses.map((degree, index) => (
-            <Option value={degree} key={index}>
-              {degree}
-            </Option>
-          ))}
-        </Select>
-
-        {/* Generate Button */}
-        <Button
-          size="md"
-          variant="outlined"
-          className="px-2 md:w-40 md:py-0 border border-blue-gray-300 text-blue-gray-600 font-semi overflow-none"
-        >
-          Generate
-        </Button>
+      <div className="w-full p-1 border-b border-1">
+        <Search
+          onSearch={handleSearch}
+          choices={nodeEdgeData?.nodes.map((node) => node.id)}
+        />
       </div>
 
       {/* Graph */}
       {graphData && (
-        <div className="w-full h-[calc(100vh-4rem)] sm:h-[calc(100vh-2rem)] md:h-[calc(100vh-8rem)] lg:h-[calc(100vh-12rem)]">
+        <div className="w-full h-[calc(100vh-8rem)]" id="home-graph-container">
           <Graph
             initialEdges={graphData.edges}
             initialNodes={graphData.nodes}
+            focusNodeRef={(fn) => {
+              focusNodeFunction = fn
+            }}
           />
         </div>
       )}
