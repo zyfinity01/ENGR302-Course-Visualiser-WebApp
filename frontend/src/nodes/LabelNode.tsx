@@ -3,5 +3,5 @@ export const LabelNode = ({ data }: any) => {
     <div style={{ background: 'none', border: 'none' }}>
       <strong>{data.label}</strong>
     </div>
-  );
-};
+  )
+}

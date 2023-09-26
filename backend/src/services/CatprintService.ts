@@ -23,11 +23,11 @@ class CatprintService {
     ).flat();
 
     courses = courses
-      .filter(x => !x.name.toLowerCase().startsWith('special topic'))
-      .filter(x => !x.description.toLowerCase().startsWith('to be advised'))
-      .filter(x => !x.description.toLowerCase().startsWith('to be confirmed'))
-      .filter(x => !x.requirements.toLowerCase().includes('permission'))
-      .filter(x => x.level < 500);
+      .filter((x) => !x.name.toLowerCase().startsWith('special topic'))
+      .filter((x) => !x.description.toLowerCase().startsWith('to be advised'))
+      .filter((x) => !x.description.toLowerCase().startsWith('to be confirmed'))
+      .filter((x) => !x.requirements.toLowerCase().includes('permission'))
+      .filter((x) => x.level < 500);
 
     return this.getDuplicateFreeCourses(courses);
   }
@@ -82,7 +82,7 @@ class CatprintService {
     var requirements = '';
     var level = 0;
     var points = 0;
-    
+
     for (const element of elements) {
       if (!element.classNames) {
         continue;
@@ -93,20 +93,19 @@ class CatprintService {
         courseId = courseIdAndName[0].trim();
         courseName = courseIdAndName[1].trim();
         level = parseInt(courseIdAndName[0].split(' ')[1][0] + '00');
-      }
-
-      else if (element.classNames.includes('subjectsbody')) {
+      } else if (element.classNames.includes('subjectsbody')) {
         description = element.textContent;
-      }
-
-      else if (element.classNames.includes('coursepoints')) {
+      } else if (element.classNames.includes('coursepoints')) {
         const pointsAndRequirements = element.textContent.split('•');
         points = parseInt(pointsAndRequirements[0].replace(' pts', '').trim());
-        requirements = pointsAndRequirements.length > 1 ? pointsAndRequirements[1].trim() : '';
-      }
-
-      else if (element.classNames.includes('timetable')) {
-        const trimester = parseInt(element.textContent.split('•')[0].trim().split('/')[0]);
+        requirements =
+          pointsAndRequirements.length > 1
+            ? pointsAndRequirements[1].trim()
+            : '';
+      } else if (element.classNames.includes('timetable')) {
+        const trimester = parseInt(
+          element.textContent.split('•')[0].trim().split('/')[0]
+        );
 
         results.push({
           id: courseId,
@@ -117,11 +116,11 @@ class CatprintService {
           level: level,
           prerequisites: [],
           status: CourseStatus.None,
-          trimester: trimester
+          trimester: trimester,
         });
       }
     }
-    
+
     return results;
   }
 }

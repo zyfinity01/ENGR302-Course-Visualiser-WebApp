@@ -14,7 +14,7 @@ describe('GraphingService', () => {
           requirements: '(P) ENGR 302',
           prerequisites: ['ENGR 302'],
           status: CourseStatus.None,
-          trimester: 1
+          trimester: 1,
         },
         {
           id: 'ENGR 302',
@@ -25,7 +25,7 @@ describe('GraphingService', () => {
           requirements: '',
           prerequisites: [],
           status: CourseStatus.None,
-          trimester: 1
+          trimester: 1,
         },
       ];
 

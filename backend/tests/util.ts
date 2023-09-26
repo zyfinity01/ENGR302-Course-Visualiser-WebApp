@@ -12,7 +12,7 @@ export function getMockCourse(id: string, requirements: string): Course {
     level: 300,
     prerequisites: [],
     status: CourseStatus.None,
-    trimester: 1
+    trimester: 1,
   };
 }
 

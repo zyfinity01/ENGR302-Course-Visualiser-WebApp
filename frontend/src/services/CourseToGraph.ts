@@ -20,8 +20,8 @@ export function convertToReactFlowFormat(graph: Graph): {
   // Adding Custom Label Nodes
   const levels = new Set(nodes.map((node) => node.data.course.level))
   const trimesters = new Set(nodes.map((node) => node.data.course.trimester))
-  levels.forEach(level => {
-    trimesters.forEach(trimester => {
+  levels.forEach((level) => {
+    trimesters.forEach((trimester) => {
       nodes.push({
         type: 'label',
         id: `label-${level}-T${trimester}`,
@@ -95,18 +95,25 @@ export function getLayoutedElements(
       console.log(node?.data.level)
 
       node.position = {
-        x: (node?.data.level * 6) + (node.data?.trimester * 170) - (nodeWidth / 2) + 50,
+        x:
+          node?.data.level * 6 +
+          node.data?.trimester * 170 -
+          nodeWidth / 2 +
+          50,
         y: -100,
       }
-    }
-    else {
+    } else {
       // Adjust the x, y position based on the level and index
-      const level = node.data?.course?.level || 1;
-      const trimester = node.data?.course?.trimester || 1;
-      const nodesInSameLevel = nodes.filter(n => n.data?.course?.level === level && n.data?.course.trimester === trimester);
-      const indexInLevel = nodesInSameLevel.findIndex(n => n.id === node.id);
-      nodeWithPosition.x = (level * 6) + (trimester * 170);
-      nodeWithPosition.y = indexInLevel * 70;
+      const level = node.data?.course?.level || 1
+      const trimester = node.data?.course?.trimester || 1
+      const nodesInSameLevel = nodes.filter(
+        (n) =>
+          n.data?.course?.level === level &&
+          n.data?.course.trimester === trimester
+      )
+      const indexInLevel = nodesInSameLevel.findIndex((n) => n.id === node.id)
+      nodeWithPosition.x = level * 6 + trimester * 170
+      nodeWithPosition.y = indexInLevel * 70
 
       // We are shifting the dagre node position (anchor=center center) to the top left
       // so it matches the React Flow node anchor point (top left).
