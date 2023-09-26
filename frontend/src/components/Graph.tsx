@@ -5,15 +5,14 @@ import ReactFlow, {
   Controls,
   Node,
   Edge,
-  /*Panel,*/
+  useReactFlow,
 } from 'reactflow'
 import dagre from 'dagre'
+import { useEffect } from 'react'
+import { getLayoutedElements } from '../services/CourseToGraph'
 
-/*
- * Omit position from node as this is calculated dynamically
- */
 export type NonPositionalNode = Omit<Node, 'position'> & {
-  position?: Node['position']
+  position?: Node['position'] // Omit position from node as this is calculated dynamically
 }
 
 interface BasicFlowProps {
@@ -21,6 +20,7 @@ interface BasicFlowProps {
   initialEdges: Edge[]
   nodeWidth?: number
   nodeHeight?: number
+  focusNodeRef: (fn: (id: string) => boolean) => void
 }
 
 const dagreGraph = new dagre.graphlib.Graph()
@@ -31,47 +31,14 @@ const Graph: React.FC<BasicFlowProps> = ({
   initialEdges,
   nodeWidth = 172,
   nodeHeight = 36,
+  focusNodeRef,
 }) => {
-  /**
-   *  Automatically configure grid layout (calculate node x and y)
-   */
-  const getLayoutedElements = (
-    nodes: any[],
-    edges: any[],
-    nodeWidth: number,
-    nodeHeight: number,
-    direction = 'TB'
-  ) => {
-    const isHorizontal = direction === 'LR'
-    dagreGraph.setGraph({ rankdir: direction })
+  const reactFlowInstance = useReactFlow()
 
-    nodes.forEach((node) => {
-      dagreGraph.setNode(node.id, { width: nodeWidth, height: nodeHeight })
-    })
-
-    edges.forEach((edge) => {
-      dagreGraph.setEdge(edge.source, edge.target)
-    })
-
-    dagre.layout(dagreGraph)
-
-    nodes.forEach((node) => {
-      const nodeWithPosition = dagreGraph.node(node.id)
-      node.targetPosition = isHorizontal ? 'left' : 'top'
-      node.sourcePosition = isHorizontal ? 'right' : 'bottom'
-
-      // We are shifting the dagre node position (anchor=center center) to the top left
-      // so it matches the React Flow node anchor point (top left).
-      node.position = {
-        x: nodeWithPosition.x - nodeWidth / 2,
-        y: nodeWithPosition.y - nodeHeight / 2,
-      }
-
-      return node
-    })
-
-    return { nodes, edges }
-  }
+  // Pass the focusNode function up to the parent component
+  useEffect(() => {
+    focusNodeRef(focusNode)
+  }, [focusNodeRef])
 
   // Convert nodes to translated ones
   const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
@@ -81,6 +48,18 @@ const Graph: React.FC<BasicFlowProps> = ({
     nodeHeight,
     'LR' // left to right
   )
+
+  // Focus viewport on a specific node by id
+  const focusNode = (id: string) => {
+    const node = layoutedNodes.find((n) => n.id === id)
+
+    if (node && node.position) {
+      reactFlowInstance?.fitView({ nodes: [node] })
+      return true
+    }
+
+    return false
+  }
 
   return (
     <ReactFlow
@@ -92,14 +71,11 @@ const Graph: React.FC<BasicFlowProps> = ({
       defaultEdgeOptions={{}}
       selectNodesOnDrag={false}
       elevateNodesOnSelect={false}
+      onNodeClick={(e) => console.log(e)}
     >
       <Background variant={BackgroundVariant.Dots} />
       <MiniMap />
       <Controls />
-
-      {/* <Panel position="top-right">
-        <button onClick={() => instance.setViewport({ x: 0, y: 0, zoom: 1 })}>reset transform</button>
-      </Panel> */}
     </ReactFlow>
   )
 }
