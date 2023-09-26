@@ -58,7 +58,7 @@ const Home = () => {
 
       {/* Graph */}
       {graphData && (
-        <div className="w-full h-[calc(100vh-8rem)]">
+        <div className="w-full h-[calc(100vh-4rem)] sm:h-[calc(100vh-2rem)] md:h-[calc(100vh-8rem)] lg:h-[calc(100vh-12rem)]">
           <Graph
             initialEdges={graphData.edges}
             initialNodes={graphData.nodes}
