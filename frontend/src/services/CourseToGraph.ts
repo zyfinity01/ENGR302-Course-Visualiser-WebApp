@@ -7,11 +7,15 @@ interface Graph {
   edges: { sourceId: string; targetId: string }[]
 }
 
+export type NonPositionalNode = Omit<Node, 'position'> & {
+  position?: Node['position'] // Omit position from node as this is calculated dynamically
+}
+
 export function convertToReactFlowFormat(graph: Graph): {
-  nodes: Node[]
+  nodes: NonPositionalNode[]
   edges: Edge[]
 } {
-  const nodes: Node[] = graph.nodes.map((node) => ({
+  const nodes: NonPositionalNode[] = graph.nodes.map((node) => ({
     id: node.id,
     data: { label: node.course.id, course: node.course },
     style: statusToStyle(node.course.status),
@@ -57,9 +61,11 @@ export function statusToStyle(status: CourseStatus): any {
         background: '#ff4c23',
         color: '#fff',
       }
-    case CourseStatus.None:
     case CourseStatus.Selected:
-      return {}
+      return {
+        borderColor: '#FF0000',
+        borderWidth: '5px',
+      }
   }
 }
 
