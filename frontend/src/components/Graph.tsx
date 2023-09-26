@@ -5,73 +5,50 @@ import ReactFlow, {
   Controls,
   Node,
   Edge,
-  useReactFlow,
+  Viewport,
 } from 'reactflow'
-import dagre from 'dagre'
-import { useEffect } from 'react'
-import { getLayoutedElements } from '../services/CourseToGraph'
+
+import { LabelNode } from '../nodes/LabelNode'
 
 export type NonPositionalNode = Omit<Node, 'position'> & {
   position?: Node['position'] // Omit position from node as this is calculated dynamically
 }
-
 interface BasicFlowProps {
-  initialNodes: NonPositionalNode[]
-  initialEdges: Edge[]
-  nodeWidth?: number
-  nodeHeight?: number
-  focusNodeRef: (fn: (id: string) => boolean) => void
+  nodes: Node[]
+  edges: Edge[]
+  defaultViewport?: Viewport
+  fitView?: boolean
+  onNodeClick: (course: string) => void
 }
 
-const dagreGraph = new dagre.graphlib.Graph()
-dagreGraph.setDefaultEdgeLabel(() => ({}))
-
 const Graph: React.FC<BasicFlowProps> = ({
-  initialNodes,
-  initialEdges,
-  nodeWidth = 172,
-  nodeHeight = 36,
-  focusNodeRef,
+  nodes,
+  edges,
+  defaultViewport,
+  fitView,
+  onNodeClick,
 }) => {
-  const reactFlowInstance = useReactFlow()
-
-  // Pass the focusNode function up to the parent component
-  useEffect(() => {
-    focusNodeRef(focusNode)
-  }, [focusNodeRef])
-
-  // Convert nodes to translated ones
-  const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
-    initialNodes,
-    initialEdges,
-    nodeWidth,
-    nodeHeight,
-    'LR' // left to right
-  )
-
-  // Focus viewport on a specific node by id
-  const focusNode = (id: string) => {
-    const node = layoutedNodes.find((n) => n.id === id)
-
-    if (node && node.position) {
-      reactFlowInstance?.fitView({ nodes: [node] })
-      return true
+  const getClickedNode = ({ target }: any) => {
+    const node = target as HTMLDivElement
+    const courseId = node.getAttribute('data-id')
+    if (courseId) {
+      onNodeClick(courseId)
     }
-
-    return false
   }
 
   return (
     <ReactFlow
-      defaultNodes={layoutedNodes}
-      defaultEdges={layoutedEdges}
+      defaultNodes={nodes}
+      defaultEdges={edges}
       minZoom={0.2}
       maxZoom={4}
-      fitView
+      nodeTypes={{ label: LabelNode }}
       defaultEdgeOptions={{}}
       selectNodesOnDrag={false}
       elevateNodesOnSelect={false}
-      onNodeClick={(e) => console.log(e)}
+      onNodeClick={getClickedNode}
+      defaultViewport={defaultViewport}
+      fitView={fitView}
     >
       <Background variant={BackgroundVariant.Dots} />
       <MiniMap />
@@ -81,4 +58,4 @@ const Graph: React.FC<BasicFlowProps> = ({
 }
 
 export default Graph
-export type { NonPositionalNode as Node, Edge }
+export type { Node, Edge }

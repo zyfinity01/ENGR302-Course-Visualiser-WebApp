@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import CourseAPI from '../services/CourseAPI'
 import { Course } from '../models/course'
 
-const useFetchCourseData = (completedCourses: string[]) => {
+const useFetchCourseData = (completedCourseIds: string[]) => {
   const [nodeEdgeData, setCourseData] = useState<
     | {
         nodes: [{ id: string; course: Course }]
@@ -10,6 +10,9 @@ const useFetchCourseData = (completedCourses: string[]) => {
       }
     | undefined
   >()
+
+  const [completedCourses, setCompletedCourses] =
+    useState<string[]>(completedCourseIds)
 
   useEffect(() => {
     async function fetchData() {
@@ -23,7 +26,7 @@ const useFetchCourseData = (completedCourses: string[]) => {
 
     fetchData()
   }, [completedCourses])
-  return { nodeEdgeData }
+  return { nodeEdgeData, completedCourses, setCompletedCourses }
 }
 
 export default useFetchCourseData
