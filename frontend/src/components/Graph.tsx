@@ -10,6 +10,7 @@ import ReactFlow, {
 import dagre from 'dagre'
 import { useEffect } from 'react'
 import { getLayoutedElements } from '../services/CourseToGraph'
+import { LabelNode } from '../nodes/LabelNode'
 
 export type NonPositionalNode = Omit<Node, 'position'> & {
   position?: Node['position'] // Omit position from node as this is calculated dynamically
@@ -67,6 +68,7 @@ const Graph: React.FC<BasicFlowProps> = ({
       defaultEdges={layoutedEdges}
       minZoom={0.2}
       maxZoom={4}
+      nodeTypes={{ label: LabelNode }}
       fitView
       defaultEdgeOptions={{}}
       selectNodesOnDrag={false}

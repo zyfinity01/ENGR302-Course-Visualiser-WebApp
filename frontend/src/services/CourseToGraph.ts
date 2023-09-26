@@ -13,9 +13,23 @@ export function convertToReactFlowFormat(graph: Graph): {
 } {
   const nodes: Node[] = graph.nodes.map((node) => ({
     id: node.id,
-    data: { label: node.course.id },
+    data: { label: node.course.id, course: node.course },
     style: statusToStyle(node.course.status),
   }))
+
+  // Adding Custom Label Nodes
+  const levels = new Set(nodes.map((node) => node.data.course.level))
+  const trimesters = new Set(nodes.map((node) => node.data.course.trimester))
+  levels.forEach((level) => {
+    trimesters.forEach((trimester) => {
+      nodes.push({
+        type: 'label',
+        id: `label-${level}-T${trimester}`,
+        data: { label: `${level} T${trimester}`, level, trimester },
+        style: { background: 'transparent', color: '#000' },
+      })
+    })
+  })
 
   const edges: Edge[] = graph.edges.map((edge, index) => ({
     id: `${index}-${edge.sourceId}-${edge.targetId}`,
@@ -77,11 +91,36 @@ export function getLayoutedElements(
     node.targetPosition = isHorizontal ? 'left' : 'top'
     node.sourcePosition = isHorizontal ? 'right' : 'bottom'
 
-    // We are shifting the dagre node position (anchor=center center) to the top left
-    // so it matches the React Flow node anchor point (top left).
-    node.position = {
-      x: nodeWithPosition.x - nodeWidth / 2,
-      y: nodeWithPosition.y - nodeHeight / 2,
+    if (node.id.startsWith('label-')) {
+      console.log(node?.data.level)
+
+      node.position = {
+        x:
+          node?.data.level * 6 +
+          node.data?.trimester * 170 -
+          nodeWidth / 2 +
+          50,
+        y: -100,
+      }
+    } else {
+      // Adjust the x, y position based on the level and index
+      const level = node.data?.course?.level || 1
+      const trimester = node.data?.course?.trimester || 1
+      const nodesInSameLevel = nodes.filter(
+        (n) =>
+          n.data?.course?.level === level &&
+          n.data?.course.trimester === trimester
+      )
+      const indexInLevel = nodesInSameLevel.findIndex((n) => n.id === node.id)
+      nodeWithPosition.x = level * 6 + trimester * 170
+      nodeWithPosition.y = indexInLevel * 70
+
+      // We are shifting the dagre node position (anchor=center center) to the top left
+      // so it matches the React Flow node anchor point (top left).
+      node.position = {
+        x: nodeWithPosition.x - nodeWidth / 2,
+        y: nodeWithPosition.y - nodeHeight / 2,
+      }
     }
 
     return node

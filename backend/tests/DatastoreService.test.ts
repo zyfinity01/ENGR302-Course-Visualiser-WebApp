@@ -18,6 +18,7 @@ describe('DatastoreService', () => {
       requirements: 'None',
       prerequisites: [],
       status: CourseStatus.None,
+      trimester: 1,
     },
   ];
 

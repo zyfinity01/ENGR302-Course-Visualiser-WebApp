@@ -14,4 +14,5 @@ export type Course = {
   requirements: string
   prerequisites: string[]
   status: CourseStatus
+  trimester: number
 }
