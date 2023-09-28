@@ -53,7 +53,11 @@ const Home = () => {
         break
       case 'click':
         setViewport(reactFlowInstance.getViewport())
-        setSelectedCourses((prevSet) => new Set(prevSet).add(courseId!))
+        if (selectedCourses.has(courseId!)) {
+          handleNodeActions('remove', courseId)
+        } else {
+          setSelectedCourses((prevSet) => new Set(prevSet).add(courseId!))
+        }
         break
       case 'remove':
         setSelectedCourses((prevSet) => {
@@ -102,7 +106,7 @@ const Home = () => {
           onSearch={(course) => handleNodeActions('search', course)}
           choices={nodes?.map((node) => node.id)}
         />
-        <div className="flex w-1/2 overflow-x-scroll items-center">
+        <div className="flex w-full overflow-x-scroll items-center">
           {Array.from(selectedCourses).map((courseId) => (
             <Chip
               size="sm"
@@ -115,6 +119,7 @@ const Home = () => {
         <Button
           variant="outlined"
           className="ml-auto"
+          id="generate-pathway-button"
           onClick={() => handleNodeActions('generate')}
         >
           Generate

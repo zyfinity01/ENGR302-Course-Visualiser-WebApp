@@ -17,8 +17,8 @@ export function convertToReactFlowFormat(graph: Graph): {
 } {
   const nodes: NonPositionalNode[] = graph.nodes.map((node) => ({
     id: node.id,
+    type: 'course',
     data: { label: node.course.id, course: node.course },
-    style: statusToStyle(node.course.status),
   }))
 
   // Adding Custom Label Nodes
@@ -46,26 +46,6 @@ export function convertToReactFlowFormat(graph: Graph): {
   return {
     nodes,
     edges,
-  }
-}
-
-export function statusToStyle(status: CourseStatus): any {
-  switch (status) {
-    case CourseStatus.Eligible:
-      return {
-        background: '#58e260',
-        color: '#fff',
-      }
-    case CourseStatus.Ineligible:
-      return {
-        background: '#ff4c23',
-        color: '#fff',
-      }
-    case CourseStatus.Selected:
-      return {
-        borderColor: '#FF0000',
-        borderWidth: '5px',
-      }
   }
 }
 
