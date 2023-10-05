@@ -31,8 +31,11 @@ const Graph: React.FC<BasicFlowProps> = ({
   fitView,
   onNodeClick,
 }) => {
-  const getClickedNode: NodeMouseHandler = (_event: React.MouseEvent, node: Node) => {
-    const course = node.data.course as Course;
+  const getClickedNode: NodeMouseHandler = (
+    _event: React.MouseEvent,
+    node: Node
+  ) => {
+    const course = node.data.course as Course
     onNodeClick(course.id)
   }
 

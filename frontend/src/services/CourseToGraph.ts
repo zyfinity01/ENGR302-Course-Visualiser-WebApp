@@ -1,4 +1,4 @@
-import { Course, CourseStatus } from '../models/course'
+import { Course } from '../models/course'
 import { Node, Edge } from '../components/Graph'
 import dagre from 'dagre'
 

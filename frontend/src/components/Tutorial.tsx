@@ -12,13 +12,12 @@ const tutorialSteps: Array<Step> = [
   },
   {
     target: '#home-graph-container',
-    content:
-      'Select completed courses by clicking on course nodes',
+    content: 'Select completed courses by clicking on course nodes',
   },
   {
     target: '#generate-pathway-button',
     content:
-      'Once you\'ve selected the completed courses, click here to see student pathway ',
+      "Once you've selected the completed courses, click here to see student pathway",
   },
   {
     target: '#export-graph-button',
