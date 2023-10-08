@@ -45,6 +45,7 @@ const Graph: React.FC<BasicFlowProps> = ({
       nodeTypes={{ label: LabelNode }}
       defaultEdgeOptions={{}}
       selectNodesOnDrag={false}
+      nodesDraggable={false}
       elevateNodesOnSelect={false}
       onNodeClick={getClickedNode}
       defaultViewport={defaultViewport}
