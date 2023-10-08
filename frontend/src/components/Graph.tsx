@@ -44,6 +44,7 @@ const Graph: React.FC<BasicFlowProps> = ({
       maxZoom={4}
       nodeTypes={{ label: LabelNode }}
       defaultEdgeOptions={{}}
+      nodesConnectable={false}
       selectNodesOnDrag={false}
       elevateNodesOnSelect={false}
       onNodeClick={getClickedNode}
