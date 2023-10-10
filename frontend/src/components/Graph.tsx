@@ -46,6 +46,7 @@ const Graph: React.FC<BasicFlowProps> = ({
       defaultEdgeOptions={{}}
       nodesConnectable={false}
       selectNodesOnDrag={false}
+      nodesDraggable={false}
       elevateNodesOnSelect={false}
       onNodeClick={getClickedNode}
       defaultViewport={defaultViewport}
