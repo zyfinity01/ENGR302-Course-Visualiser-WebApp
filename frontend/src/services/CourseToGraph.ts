@@ -78,8 +78,6 @@ export function getLayoutedElements(
     node.sourcePosition = isHorizontal ? 'right' : 'bottom'
 
     if (node.id.startsWith('label-')) {
-      console.log(node?.data.level)
-
       node.position = {
         x:
           node?.data.level * 6 +
