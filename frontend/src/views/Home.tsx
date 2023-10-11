@@ -112,11 +112,11 @@ const Home = () => {
         <Checkbox
           crossOrigin=""
           color="blue"
-          label={<div className='w-30'>Links</div>}
+          label={<div className="w-30">Links</div>}
           className="w-5"
           id="show-edges-checkbox"
           checked={showEdges}
-          onChange={() => setShowEdges(prev => !prev)}
+          onChange={() => setShowEdges((prev) => !prev)}
         />
 
         <div className="flex w-full overflow-x-scroll items-center">
@@ -134,7 +134,8 @@ const Home = () => {
           variant="outlined"
           className="ml-auto min-w-fit"
           id="generate-pathway-button"
-          onClick={() => handleNodeActions('generate')}>
+          onClick={() => handleNodeActions('generate')}
+        >
           Generate
         </Button>
 
@@ -144,7 +145,10 @@ const Home = () => {
       </div>
 
       {graphData && (
-        <div className="w-full h-[calc(100vh-8rem)] min-w-fit" id="home-graph-container">
+        <div
+          className="w-full h-[calc(100vh-8rem)] min-w-fit"
+          id="home-graph-container"
+        >
           <Graph
             {...graphData}
             onNodeClick={(courseId) => handleNodeActions('click', courseId)}

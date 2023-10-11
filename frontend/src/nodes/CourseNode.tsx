@@ -32,8 +32,8 @@ export function statusToStyle(status: CourseStatus): any {
 }
 
 function getCourseUrl(course: Course): string {
-  const subject = course.id.substring(0, 4);
-  const code = course.id.substring(5, 9);
+  const subject = course.id.substring(0, 4)
+  const code = course.id.substring(5, 9)
 
   return `https://www.wgtn.ac.nz/courses/${subject}/${code}`
 }
@@ -68,8 +68,12 @@ export const CourseNode = memo(
             content={
               <div>
                 <div className="w-80 bg-gray-100 px-2 py-2 rounded">
-                  <Typography color="blue-gray" className="font-medium">{course.id} - {course.name}</Typography>
-                  <Typography color="blue-gray" className="font-bold">{course.points} points</Typography>
+                  <Typography color="blue-gray" className="font-medium">
+                    {course.id} - {course.name}
+                  </Typography>
+                  <Typography color="blue-gray" className="font-bold">
+                    {course.points} points
+                  </Typography>
                 </div>
                 <div className="w-80 mt-2">
                   <Typography
@@ -92,9 +96,16 @@ export const CourseNode = memo(
                   </div>
                 )}
               </div>
-            }>
-
-            <a href={getCourseUrl(course)} target='_blank' onClick={(e) => { e.stopPropagation(); }}>
+            }
+          >
+            <a
+              href={getCourseUrl(course)}
+              target="_blank"
+              rel="noopener"
+              onClick={(e) => {
+                e.stopPropagation()
+              }}
+            >
               <FontAwesomeIcon icon={faInfoCircle} className="ml-2" />
             </a>
           </Tooltip>

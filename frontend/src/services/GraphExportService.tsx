@@ -6,7 +6,7 @@ export const handleExport = () => {
   ) as HTMLElement
   if (container) {
     toPng(container, {
-      pixelRatio: 6
+      pixelRatio: 6,
     })
       .then((dataUrl) => {
         const link = document.createElement('a')
