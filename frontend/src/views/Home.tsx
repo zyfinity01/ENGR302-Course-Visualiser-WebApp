@@ -7,7 +7,7 @@ import {
 import Search from '../components/Search'
 import Tutorial from '../components/Tutorial'
 import useFetchCourseData from '../hooks/useFetchGraphData'
-import { Button, Chip } from '@material-tailwind/react'
+import { Button, Checkbox, Chip } from '@material-tailwind/react'
 import { CourseStatus } from '../models/course'
 import { Viewport, useReactFlow } from 'reactflow'
 
@@ -21,7 +21,9 @@ const Home = () => {
   const { nodeEdgeData, setCompletedCourses } = useFetchCourseData([])
   const reactFlowInstance = useReactFlow()
 
-  useEffect(() => updateGraphData(), [nodeEdgeData, selectedCourses])
+  const [showEdges, setShowEdges] = useState(false)
+
+  useEffect(() => updateGraphData(), [nodeEdgeData, selectedCourses, showEdges])
 
   /**
    * Format and update the graph data.
@@ -30,16 +32,16 @@ const Home = () => {
   const updateGraphData = () => {
     if (!nodeEdgeData) return
     const newNodes = nodeEdgeData.nodes.map((node: any) =>
-      selectedCourses.has(node.id)
+      selectedCourses.has(node.course.id)
         ? { ...node, course: { ...node.course, status: CourseStatus.Selected } }
         : node
     )
 
-    const nodes = convertToReactFlowFormat({
+    const { nodes, edges } = convertToReactFlowFormat({
       nodes: newNodes,
-      edges: nodeEdgeData.edges,
+      edges: showEdges ? nodeEdgeData.edges : [],
     })
-    setGraphData(getLayoutedElements(nodes.nodes, nodes.edges, 172, 36, 'LR'))
+    setGraphData(getLayoutedElements(nodes, edges, 172, 36, 'LR'))
   }
 
   /**
@@ -53,7 +55,11 @@ const Home = () => {
         break
       case 'click':
         setViewport(reactFlowInstance.getViewport())
-        setSelectedCourses((prevSet) => new Set(prevSet).add(courseId!))
+        if (selectedCourses.has(courseId!)) {
+          handleNodeActions('remove', courseId)
+        } else {
+          setSelectedCourses((prevSet) => new Set(prevSet).add(courseId!))
+        }
         break
       case 'remove':
         setSelectedCourses((prevSet) => {
@@ -102,30 +108,47 @@ const Home = () => {
           onSearch={(course) => handleNodeActions('search', course)}
           choices={nodes?.map((node) => node.id)}
         />
-        <div className="flex w-1/2 overflow-x-scroll items-center">
+
+        <Checkbox
+          crossOrigin=""
+          color="blue"
+          label={<div className="w-30">Links</div>}
+          className="w-5"
+          id="show-edges-checkbox"
+          checked={showEdges}
+          onChange={() => setShowEdges((prev) => !prev)}
+        />
+
+        <div className="flex w-full overflow-x-scroll items-center">
           {Array.from(selectedCourses).map((courseId) => (
             <Chip
               size="sm"
-              className="rounded-full h-8"
+              className="rounded-full h-8 pl-5 mr-2"
               value={courseId}
               onClose={() => handleNodeActions('remove', courseId)}
             />
           ))}
         </div>
+
         <Button
           variant="outlined"
-          className="ml-auto"
+          className="ml-auto min-w-fit"
+          id="generate-pathway-button"
           onClick={() => handleNodeActions('generate')}
         >
           Generate
         </Button>
+
         <Button variant="outlined" onClick={() => handleNodeActions('reset')}>
           Reset
         </Button>
       </div>
 
       {graphData && (
-        <div className="w-full h-[calc(100vh-8rem)]" id="home-graph-container">
+        <div
+          className="w-full h-[calc(100vh-8rem)] min-w-fit"
+          id="home-graph-container"
+        >
           <Graph
             {...graphData}
             onNodeClick={(courseId) => handleNodeActions('click', courseId)}

@@ -17,7 +17,7 @@ class GraphingService {
     // Create nodes for every course
     for (const course of courses) {
       nodes.push({
-        id: course.id,
+        id: course.id + ' T' + course.trimester,
         course: course,
       });
     }
@@ -25,10 +25,13 @@ class GraphingService {
     // Create edges based on prerequisites
     for (const course of courses) {
       for (const prereq of course.prerequisites) {
-        edges.push({
-          sourceId: prereq,
-          targetId: course.id,
-        });
+        const prereqCourses = courses.filter((x) => x.id == prereq);
+        for (const prereqCourse of prereqCourses) {
+          edges.push({
+            sourceId: prereqCourse.id + ' T' + prereqCourse.trimester,
+            targetId: course.id + ' T' + course.trimester,
+          });
+        }
       }
     }
 

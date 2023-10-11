@@ -11,14 +11,18 @@ const tutorialSteps: Array<Step> = [
     content: 'Find courses in the graph using the courses name such as ENGR302',
   },
   {
+    target: '#home-graph-container',
+    content: 'Select completed courses by clicking on course nodes',
+  },
+  {
+    target: '#generate-pathway-button',
+    content:
+      "Once you've selected the completed courses, click here to see student pathway",
+  },
+  {
     target: '#export-graph-button',
     content:
       'Click here to export the graph that is currently within the viewport',
-  },
-  {
-    target: '#home-graph-container',
-    content:
-      'Select completed courses by clicking on course nodes to see student pathway',
   },
 ]
 

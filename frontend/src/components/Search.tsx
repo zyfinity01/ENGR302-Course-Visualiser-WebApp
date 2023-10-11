@@ -32,6 +32,7 @@ const Search: React.FC<SearchProps> = ({ onSearch, choices }) => {
         type="text"
         label="Find course"
         color="green"
+        id="course-search-input"
         value={searchInput}
         onChange={onChange}
         onKeyDown={(event) => event.key === 'Enter' && onSearch(searchInput)}

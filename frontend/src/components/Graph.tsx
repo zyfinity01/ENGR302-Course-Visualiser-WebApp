@@ -6,9 +6,12 @@ import ReactFlow, {
   Node,
   Edge,
   Viewport,
+  NodeMouseHandler,
 } from 'reactflow'
 
 import { LabelNode } from '../nodes/LabelNode'
+import { CourseNode } from '../nodes/CourseNode'
+import { Course } from '../models/course'
 
 export type NonPositionalNode = Omit<Node, 'position'> & {
   position?: Node['position'] // Omit position from node as this is calculated dynamically
@@ -28,12 +31,12 @@ const Graph: React.FC<BasicFlowProps> = ({
   fitView,
   onNodeClick,
 }) => {
-  const getClickedNode = ({ target }: any) => {
-    const node = target as HTMLDivElement
-    const courseId = node.getAttribute('data-id')
-    if (courseId) {
-      onNodeClick(courseId)
-    }
+  const getClickedNode: NodeMouseHandler = (
+    _event: React.MouseEvent,
+    node: Node
+  ) => {
+    const course = node.data.course as Course
+    onNodeClick(course.id)
   }
 
   return (
@@ -42,9 +45,11 @@ const Graph: React.FC<BasicFlowProps> = ({
       defaultEdges={edges}
       minZoom={0.2}
       maxZoom={4}
-      nodeTypes={{ label: LabelNode }}
+      nodeTypes={{ label: LabelNode, course: CourseNode }}
       defaultEdgeOptions={{}}
+      nodesConnectable={false}
       selectNodesOnDrag={false}
+      nodesDraggable={false}
       elevateNodesOnSelect={false}
       onNodeClick={getClickedNode}
       defaultViewport={defaultViewport}
@@ -52,7 +57,7 @@ const Graph: React.FC<BasicFlowProps> = ({
     >
       <Background variant={BackgroundVariant.Dots} />
       <MiniMap />
-      <Controls />
+      <Controls showInteractive={false} />
     </ReactFlow>
   )
 }
