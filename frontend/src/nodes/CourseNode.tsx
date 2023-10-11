@@ -1,6 +1,6 @@
 import { Handle, Position } from 'reactflow'
 import { Course, CourseStatus } from '../models/course'
-import { faWarning, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Tooltip, Typography } from '@material-tailwind/react'
 import { memo } from 'react'
@@ -31,9 +31,16 @@ export function statusToStyle(status: CourseStatus): any {
   }
 }
 
+function getCourseUrl(course: Course): string {
+  const subject = course.id.substring(0, 4);
+  const code = course.id.substring(5, 9);
+
+  return `https://www.wgtn.ac.nz/courses/${subject}/${code}`
+}
+
 export const CourseNode = memo(
   ({
-    data: { label, course },
+    data: { course },
     isConnectable,
   }: {
     data: { label: string; course: Course }
@@ -57,30 +64,59 @@ export const CourseNode = memo(
 
           <Tooltip
             placement="bottom"
-            className="border border-blue-gray-50 bg-white px-4 py-3 shadow-xl shadow-black/10"
+            className="border border-blue-gray-50 bg-white shadow-xl shadow-black/10"
             content={
-              <div className="w-80">
-                <Typography color="blue-gray" className="font-medium">
-                  {course.name}
-                </Typography>
-                <Typography color="blue-gray" className="font-bold">
-                  {course.points} points
-                </Typography>
-                <Typography
-                  variant="small"
-                  color="blue-gray"
-                  className="font-normal opacity-80"
-                >
-                  {course.description}
-                </Typography>
+              <div>
+                <div className="w-80 bg-gray-100 px-2 py-2 rounded">
+                  <Typography color="blue-gray" className="font-medium">
+                    {course.id} - {course.name} <Typography color="blue-gray" className="font-bold">
+                      {course.points} points</Typography>
+                  </Typography>
+                </div>
+                <div className="w-80 mt-2">
+                  <Typography
+                    variant="small"
+                    color="blue-gray"
+                    className="font-normal opacity-80"
+                  >
+                    {course.description}
+                  </Typography>
+                </div>
+                {course.requirements && course.requirements !== '' && (
+                  <div className="w-80 mt-2">
+                    <Typography
+                      variant="small"
+                      color="blue-gray"
+                      className="italic opacity-80"
+                    >
+                      {course.requirements}
+                    </Typography>
+                  </div>
+                )}
               </div>
-            }
-          >
-            <FontAwesomeIcon icon={faInfoCircle} className="ml-2" />
+            }>
+
+            <a href={getCourseUrl(course)} target='_blank' onClick={(e) => { e.stopPropagation(); }}>
+              <FontAwesomeIcon icon={faInfoCircle} className="ml-2" />
+            </a>
           </Tooltip>
         </div>
 
-        {/* Right edge connection */}
+        <Handle
+          type="source"
+          position={Position.Bottom}
+          isConnectable={isConnectable}
+        />
+        <Handle
+          type="source"
+          position={Position.Top}
+          isConnectable={isConnectable}
+        />
+        <Handle
+          type="source"
+          position={Position.Left}
+          isConnectable={isConnectable}
+        />
         <Handle
           type="source"
           position={Position.Right}

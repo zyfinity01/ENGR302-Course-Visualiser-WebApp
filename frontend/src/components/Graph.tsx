@@ -57,7 +57,7 @@ const Graph: React.FC<BasicFlowProps> = ({
     >
       <Background variant={BackgroundVariant.Dots} />
       <MiniMap />
-      <Controls />
+      <Controls showInteractive={false} />
     </ReactFlow>
   )
 }
