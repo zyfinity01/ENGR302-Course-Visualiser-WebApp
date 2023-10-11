@@ -21,7 +21,7 @@ const Home = () => {
   const { nodeEdgeData, setCompletedCourses } = useFetchCourseData([])
   const reactFlowInstance = useReactFlow()
 
-  const [showEdges, setShowEdges] = useState(true)
+  const [showEdges, setShowEdges] = useState(false)
 
   useEffect(() => updateGraphData(), [nodeEdgeData, selectedCourses, showEdges])
 
