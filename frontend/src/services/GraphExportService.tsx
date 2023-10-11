@@ -5,7 +5,9 @@ export const handleExport = () => {
     '.react-flow__viewport'
   ) as HTMLElement
   if (container) {
-    toPng(container)
+    toPng(container, {
+      pixelRatio: 6,
+    })
       .then((dataUrl) => {
         const link = document.createElement('a')
         link.download = 'graph.png'

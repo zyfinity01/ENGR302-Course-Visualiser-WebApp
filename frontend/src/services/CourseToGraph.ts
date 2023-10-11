@@ -39,7 +39,7 @@ export function convertToReactFlowFormat(graph: Graph): {
     id: `${index}-${edge.sourceId}-${edge.targetId}`,
     source: edge.sourceId,
     target: edge.targetId,
-    type: 'smoothstep',
+    type: 'straight',
     animated: true,
   }))
 
@@ -78,12 +78,10 @@ export function getLayoutedElements(
     node.sourcePosition = isHorizontal ? 'right' : 'bottom'
 
     if (node.id.startsWith('label-')) {
-      console.log(node?.data.level)
-
       node.position = {
         x:
           node?.data.level * 6 +
-          node.data?.trimester * 170 -
+          node.data?.trimester * 200 -
           nodeWidth / 2 +
           50,
         y: -100,
@@ -98,8 +96,8 @@ export function getLayoutedElements(
           n.data?.course.trimester === trimester
       )
       const indexInLevel = nodesInSameLevel.findIndex((n) => n.id === node.id)
-      nodeWithPosition.x = level * 6 + trimester * 170
-      nodeWithPosition.y = indexInLevel * 70
+      nodeWithPosition.x = level * 6 + trimester * 200
+      nodeWithPosition.y = indexInLevel * 120
 
       // We are shifting the dagre node position (anchor=center center) to the top left
       // so it matches the React Flow node anchor point (top left).
