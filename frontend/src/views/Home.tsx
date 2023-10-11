@@ -7,7 +7,7 @@ import {
 import Search from '../components/Search'
 import Tutorial from '../components/Tutorial'
 import useFetchCourseData from '../hooks/useFetchGraphData'
-import { Button, Chip } from '@material-tailwind/react'
+import { Button, Checkbox, Chip } from '@material-tailwind/react'
 import { CourseStatus } from '../models/course'
 import { Viewport, useReactFlow } from 'reactflow'
 
@@ -21,7 +21,9 @@ const Home = () => {
   const { nodeEdgeData, setCompletedCourses } = useFetchCourseData([])
   const reactFlowInstance = useReactFlow()
 
-  useEffect(() => updateGraphData(), [nodeEdgeData, selectedCourses])
+  const [showEdges, setShowEdges] = useState(true)
+
+  useEffect(() => updateGraphData(), [nodeEdgeData, selectedCourses, showEdges])
 
   /**
    * Format and update the graph data.
@@ -35,11 +37,11 @@ const Home = () => {
         : node
     )
 
-    const nodes = convertToReactFlowFormat({
+    const { nodes, edges } = convertToReactFlowFormat({
       nodes: newNodes,
-      edges: nodeEdgeData.edges,
+      edges: showEdges ? nodeEdgeData.edges : [],
     })
-    setGraphData(getLayoutedElements(nodes.nodes, nodes.edges, 172, 36, 'LR'))
+    setGraphData(getLayoutedElements(nodes, edges, 172, 36, 'LR'))
   }
 
   /**
@@ -106,6 +108,17 @@ const Home = () => {
           onSearch={(course) => handleNodeActions('search', course)}
           choices={nodes?.map((node) => node.id)}
         />
+
+        <Checkbox
+          crossOrigin=""
+          color="blue"
+          label={<div className='w-30'>Links</div>}
+          className="w-5"
+          id="show-edges-checkbox"
+          checked={showEdges}
+          onChange={() => setShowEdges(prev => !prev)}
+        />
+
         <div className="flex w-full overflow-x-scroll items-center">
           {Array.from(selectedCourses).map((courseId) => (
             <Chip
@@ -116,14 +129,15 @@ const Home = () => {
             />
           ))}
         </div>
+
         <Button
           variant="outlined"
           className="ml-auto min-w-fit"
           id="generate-pathway-button"
-          onClick={() => handleNodeActions('generate')}
-        >
+          onClick={() => handleNodeActions('generate')}>
           Generate
         </Button>
+
         <Button variant="outlined" onClick={() => handleNodeActions('reset')}>
           Reset
         </Button>
