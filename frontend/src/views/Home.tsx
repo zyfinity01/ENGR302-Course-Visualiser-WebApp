@@ -110,7 +110,7 @@ const Home = () => {
           {Array.from(selectedCourses).map((courseId) => (
             <Chip
               size="sm"
-              className="rounded-full h-8"
+              className="rounded-full h-8 pl-5 mr-2"
               value={courseId}
               onClose={() => handleNodeActions('remove', courseId)}
             />
@@ -118,7 +118,7 @@ const Home = () => {
         </div>
         <Button
           variant="outlined"
-          className="ml-auto"
+          className="ml-auto min-w-fit"
           id="generate-pathway-button"
           onClick={() => handleNodeActions('generate')}
         >
@@ -130,7 +130,7 @@ const Home = () => {
       </div>
 
       {graphData && (
-        <div className="w-full h-[calc(100vh-8rem)]" id="home-graph-container">
+        <div className="w-full h-[calc(100vh-8rem)] min-w-fit" id="home-graph-container">
           <Graph
             {...graphData}
             onNodeClick={(courseId) => handleNodeActions('click', courseId)}
