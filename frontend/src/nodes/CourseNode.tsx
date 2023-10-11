@@ -68,10 +68,8 @@ export const CourseNode = memo(
             content={
               <div>
                 <div className="w-80 bg-gray-100 px-2 py-2 rounded">
-                  <Typography color="blue-gray" className="font-medium">
-                    {course.id} - {course.name} <Typography color="blue-gray" className="font-bold">
-                      {course.points} points</Typography>
-                  </Typography>
+                  <Typography color="blue-gray" className="font-medium">{course.id} - {course.name}</Typography>
+                  <Typography color="blue-gray" className="font-bold">{course.points} points</Typography>
                 </div>
                 <div className="w-80 mt-2">
                   <Typography
