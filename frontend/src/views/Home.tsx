@@ -30,7 +30,7 @@ const Home = () => {
   const updateGraphData = () => {
     if (!nodeEdgeData) return
     const newNodes = nodeEdgeData.nodes.map((node: any) =>
-      selectedCourses.has(node.id)
+      selectedCourses.has(node.course.id)
         ? { ...node, course: { ...node.course, status: CourseStatus.Selected } }
         : node
     )
