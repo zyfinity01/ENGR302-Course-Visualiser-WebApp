@@ -7,7 +7,7 @@
   "license": "ISC",
   "scripts": {
     "build": "npx tsc",
-    "start": "node dist/app.js",
+    "start": "node dist/src/app.js",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/src/app.js\"",
     "lint": "prettier --check . && eslint .",
     "format": "prettier --write .",
