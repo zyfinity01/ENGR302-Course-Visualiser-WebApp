@@ -33,13 +33,13 @@ describe('GraphingService', () => {
 
       // Validate nodes
       expect(graph.nodes).toEqual([
-        { id: 'SWEN 438', course: courses[0] },
-        { id: 'ENGR 302', course: courses[1] },
+        { id: 'SWEN 438 T1', course: courses[0] },
+        { id: 'ENGR 302 T1', course: courses[1] },
       ]);
 
       // Validate edges based on prerequisites
       expect(graph.edges).toEqual([
-        { sourceId: 'ENGR 302', targetId: 'SWEN 438' },
+        { sourceId: 'ENGR 302 T1', targetId: 'SWEN 438 T1' },
       ]);
     });
   });

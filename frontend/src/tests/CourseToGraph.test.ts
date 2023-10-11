@@ -1,9 +1,9 @@
 import {
   convertToReactFlowFormat,
-  statusToStyle,
   getLayoutedElements,
 } from '../services/CourseToGraph'
 import { Course, CourseStatus } from '../models/course'
+import { statusToStyle } from '../nodes/CourseNode'
 
 describe('CourseToGraph', () => {
   // Sample course data for testing

@@ -7,7 +7,7 @@ import {
 import Search from '../components/Search'
 import Tutorial from '../components/Tutorial'
 import useFetchCourseData from '../hooks/useFetchGraphData'
-import { Button, Chip } from '@material-tailwind/react'
+import { Button, Checkbox, Chip } from '@material-tailwind/react'
 import { CourseStatus } from '../models/course'
 import { Viewport, useReactFlow } from 'reactflow'
 
@@ -110,31 +110,47 @@ const Home = () => {
           onSearch={(course) => handleNodeActions('search', course)}
           choices={nodes?.map((node) => node.id)}
         />
+
+        <Checkbox
+          crossOrigin=""
+          color="blue"
+          label={<div className="w-30">Links</div>}
+          className="w-5"
+          id="show-edges-checkbox"
+          checked={showEdges}
+          onChange={() => setShowEdges((prev) => !prev)}
+        />
+
         <div className="flex w-full overflow-x-scroll items-center">
           {Array.from(selectedCourses).map((courseId) => (
             <Chip
               size="sm"
-              className="rounded-full h-8"
+              className="rounded-full h-8 pl-5 mr-2"
               value={courseId}
               onClose={() => handleNodeActions('remove', courseId)}
             />
           ))}
         </div>
+
         <Button
           variant="outlined"
-          className="ml-auto"
+          className="ml-auto min-w-fit"
           id="generate-pathway-button"
           onClick={() => handleNodeActions('generate')}
         >
           Generate
         </Button>
+
         <Button variant="outlined" onClick={() => handleNodeActions('reset')}>
           Reset
         </Button>
       </div>
 
       {graphData && (
-        <div className="w-full h-[calc(100vh-8rem)]" id="home-graph-container">
+        <div
+          className="w-full h-[calc(100vh-8rem)] min-w-fit"
+          id="home-graph-container"
+        >
           <Graph
             {...graphData}
             onNodeClick={(courseId) => handleNodeActions('click', courseId)}
