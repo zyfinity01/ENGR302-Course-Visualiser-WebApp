@@ -21,28 +21,30 @@ const Home = () => {
   const { nodeEdgeData, setCompletedCourses } = useFetchCourseData([])
   const reactFlowInstance = useReactFlow()
 
-  const [showEdges, setShowEdges] = useState(false)
-
-  useEffect(() => updateGraphData(), [nodeEdgeData, selectedCourses, showEdges])
-
   /**
    * Format and update the graph data.
    *
    */
-  const updateGraphData = () => {
-    if (!nodeEdgeData) return
-    const newNodes = nodeEdgeData.nodes.map((node: any) =>
-      selectedCourses.has(node.course.id)
-        ? { ...node, course: { ...node.course, status: CourseStatus.Selected } }
-        : node
-    )
+  useEffect(() => {
+    const updateGraphData = () => {
+      if (!nodeEdgeData) return
+      const newNodes = nodeEdgeData.nodes.map((node: any) =>
+        selectedCourses.has(node.id)
+          ? {
+              ...node,
+              course: { ...node.course, status: CourseStatus.Selected },
+            }
+          : node
+      )
 
-    const { nodes, edges } = convertToReactFlowFormat({
-      nodes: newNodes,
-      edges: showEdges ? nodeEdgeData.edges : [],
-    })
-    setGraphData(getLayoutedElements(nodes, edges, 172, 36, 'LR'))
-  }
+      const nodes = convertToReactFlowFormat({
+        nodes: newNodes,
+        edges: nodeEdgeData.edges,
+      })
+      setGraphData(getLayoutedElements(nodes.nodes, nodes.edges, 172, 36, 'LR'))
+    }
+    updateGraphData()
+  }, [nodeEdgeData, selectedCourses])
 
   /**
    * Handle actions on the node.
