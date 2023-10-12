@@ -48,7 +48,7 @@ describe('CourseToGraph', () => {
         id: '0-ENGR 302-SWEN 438',
         source: 'ENGR 302',
         target: 'SWEN 438',
-        type: 'smoothstep',
+        type: 'straight',
         animated: true,
       })
     })
@@ -78,8 +78,9 @@ describe('CourseToGraph', () => {
         color: '#fff',
       })
       expect(statusToStyle(CourseStatus.Selected)).toEqual({
-        borderColor: '#FF0000',
-        borderWidth: '5px',
+        background: '#FFF',
+        borderColor: '#AED8E6',
+        borderWidth: '3px',
       })
     })
   })
