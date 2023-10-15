@@ -71,7 +71,7 @@ run_frontend:
   script:
     - docker stop frontend-container || true
     - docker rm frontend-container || true
-    - docker run -d -p 3000:3000 -e REACT_APP_COURSE_API_URL=$REACT_APP_COURSE_API_URL --name frontend-container $DOCKER_IMAGE_FRONTEND:latest
+    - docker run -d -p 3000:3000 --build-arg REACT_APP_COURSE_API_URL=$REACT_APP_COURSE_API_URL -e REACT_APP_COURSE_API_URL=$REACT_APP_COURSE_API_URL --name frontend-container $DOCKER_IMAGE_FRONTEND:latest
   when: always
   only:
     - release
