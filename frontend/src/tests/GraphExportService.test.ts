@@ -38,7 +38,7 @@ describe('handleExport', () => {
     await handleExport()
 
     expect(document.querySelector).toHaveBeenCalledWith('.react-flow__viewport')
-    expect(toPng).toHaveBeenCalledWith(mockElement)
+    expect(toPng).toHaveBeenCalledWith(mockElement, { pixelRatio: 6 })
     expect(linkMock.download).toBe('graph.png')
     expect(linkMock.href).toBe('dataUrlSample')
     expect(linkMock.click).toHaveBeenCalled()
@@ -55,7 +55,7 @@ describe('handleExport', () => {
       expect(document.querySelector).toHaveBeenCalledWith(
         '.react-flow__viewport'
       )
-      expect(toPng).toHaveBeenCalledWith(mockElement)
+      expect(toPng).toHaveBeenCalledWith(mockElement, { pixelRatio: 6 })
       expect(console.error).toHaveBeenCalledWith(
         'Export failed:',
         new Error('Export Error')
