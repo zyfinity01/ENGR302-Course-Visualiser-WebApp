@@ -101,7 +101,7 @@ export const CourseNode = memo(
             <a
               href={getCourseUrl(course)}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
               onClick={(e) => {
                 e.stopPropagation()
               }}
