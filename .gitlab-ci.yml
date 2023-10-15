@@ -38,7 +38,7 @@ build_frontend:
   stage: build
   script:
     - cd frontend
-    - docker build -e REACT_APP_COURSE_API_URL=$REACT_APP_COURSE_API_URL -t $DOCKER_IMAGE_FRONTEND:latest .
+    - docker build --build-arg REACT_APP_COURSE_API_URL=$REACT_APP_COURSE_API_URL -t $DOCKER_IMAGE_FRONTEND:latest .
   only:
     - release
 
